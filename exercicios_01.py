@@ -399,33 +399,33 @@
 # Para salários superiores a R$ 1.250,00, calcule um aumento de 10%. Para inferiores ou iguais, 
 # o aumento é de 15%.
 
-while True:
-    try:
-        salario: float = float(input("Inserir o respectivo salário: "))
-        if salario < 0:
-            print("Por favor, insira um valor positivo/válido para o salário.")
-            continue
-        break
-    except ValueError as m:
-        print("Inserir um valor/formatação válida para o salário!")
+# while True:
+#     try:
+#         salario: float = float(input("Inserir o respectivo salário: "))
+#         if salario < 0:
+#             print("Por favor, insira um valor positivo/válido para o salário.")
+#             continue
+#         break
+#     except ValueError as m:
+#         print("Inserir um valor/formatação válida para o salário!")
 
-try:
-    if salario > 1250:
-        aumento: float = salario * 0.10
-        print(f'O valor do seu reajuste é de R${aumento}. Seu salário total é de R${salario + aumento}')
-    else:
-        aumento: float = salario * 0.15
-        print(f'O valor do seu reajuste é de R${aumento}. Seu salário total é de R${salario + aumento}')
-except ValueError as m:
-    print("Erro de formato")
+# try:
+#     if salario > 1250:
+#         aumento: float = salario * 0.10
+#         print(f'O valor do seu reajuste é de R${aumento}. Seu salário total é de R${salario + aumento}')
+#     else:
+#         aumento: float = salario * 0.15
+#         print(f'O valor do seu reajuste é de R${aumento}. Seu salário total é de R${salario + aumento}')
+# except ValueError as m:
+#     print("Erro de formato")
 
 # 35 - Desenvolva um programa que leia o comprimento de três retas e diga ao usuário se elas podem
 # ou não formar um triângulo.
 
 # try:
-#     x: float = float(input("Insira o primeiro lado: "))
-#     y: float = float(input("Insira o segundo lado: "))
-#     z: float = float(input("Insira o terceiro lado: "))
+#     x: float = float(input("Insira o primeiro lado (x): "))
+#     y: float = float(input("Insira o segundo lado (y): "))
+#     z: float = float(input("Insira o terceiro lado (z): "))
 
 #     if x + y > z and x + z > y and y + z > x:
 #         print("As retas informadas formam um triângulo!")
@@ -445,3 +445,318 @@ except ValueError as m:
 #         print("As retas informadas não formam um triângulo.")
 # except ValueError as m:
 #     print(m)
+
+# 36 - Escreva um programa para aprovar o empréstimo bancário para a compra de uma casa. O programa vai perguntar o valor da casa,
+# o salário do comprador e em quantos anos ele vai pagar.
+# Calcule o valor da prestação mensal,sabendo que ele não pode exceder 30% do salário ou entao o empréstimo será negado
+
+# try:
+#     valor: float = float(input("Gentileza informar o valor do imóvel: "))
+#     salario: float = float(input("Informe a renda líquida: "))
+#     ano: int = int(input("Inserir a quantidade de anos para quitação: "))
+#     meses: int = ano * 12
+#     prestacao: float = valor / meses
+#     print(f'Para pagar R$ {valor:.2f} em {ano} anos. A prestação será de R$ {prestacao:.2f} por mês.') 
+# except ValueError:
+#     print("Inserir os valores conforme solicitado")
+
+# if prestacao > (salario * 0.30):
+#     print("Empréstimo negado. Valor da prestação excede o limite maximo de 30% para o salário informado.")
+# else:
+#     print(f'Empréstimo aprovado! Gentileza providenciar documentação conforme lista informada pelo seu gerente.')
+
+
+# 37 - Escreva um programa que leia um numero inteiro qualquer e peça para o usuário escolher qual será a base de conversão:
+# 1 binario, 2 octal e 3 hexadecimal
+
+# try:
+#     numero: int = int(input("Digite um número inteiro: "))
+#     print("*****" * 20)
+#     print("Escolha uma das bases para conversão: ")
+#     print("[ 1 ] converter para BINÁRIO")
+#     print("[ 2 ] converter para OCTAL")
+#     print("[ 3 ] converter para HEXADECIMAL")
+#     print("*****" * 20)
+# except ValueError:
+#     print("Inserir número inteiro.")
+
+# while True:
+#     try:
+#         opcao: int = int(input("Sua opção: "))
+#         if opcao < 0:
+#             print("Inserir número válido!")
+#             continue
+#         break
+#     except ValueError:
+#         print("Inserir valor correto conforme acima.")
+        
+# if opcao == 1:
+#     print(f'{numero} convertido para BINÁRIO é igual a {bin(numero)[2:]}.')
+# elif opcao == 2:
+#     print(f'{numero} convertido para OCTAL é igual a {oct(numero)[2:]}.')
+# else:
+#     print(f'{numero} convertido para HEXADECIMAL é igual a {hex(numero)[2:]}.')
+
+
+# 38 - Escreva um programa que leia dois numeros inteiros e compare-os, mostrando na tela a mensagem:
+# O primeiro valor é maior
+# O segundo valor é maior 
+# nao existe valor maior, os dois são iguais.
+
+# while True:
+
+#     try:
+#         numero01: int = int(input("Insira o primeiro número: "))
+#         numero02: int = int(input("Insira o segundo número: "))
+
+#         if numero01 < 0 or numero02 < 0:
+#             print("Números negativos não são válidos.")
+#             continue
+#         break
+
+#     except ValueError:
+#         print("Inserir números válidos.")
+
+# if numero01 > numero02:
+#     print("O primeiro número é maior que o segundo!")
+# elif numero02 > numero01:
+#     print("O segundo número é maior que o primeiro!")
+# else:
+#     print("Ambos os números são iguais!")
+
+# 39 - Crie um programa que leia o ano de nascimento de um jovem e informe, de acordo com sua idade:
+# Se ele ainda vai se alistar ao serviço militar
+# Se é a hora de se alistar 
+# Se já passou do tempo de alistamento
+# O programa deve apresentar o tempo que falta e/ou o que passou do prazo
+
+# from datetime import datetime
+
+# nome: str = input("Insira o seu nome: ")
+
+# while True:
+#     try:
+#         ano: int = int(input("Insira o ano de nascimento: "))
+#         if ano < 0:
+#             print("Inserir ano válido.")
+#             continue
+#         break
+#     except ValueError:
+#         print("Insira os dados corretamente.")
+
+# atual: int = datetime.now().year
+# diferenca: int = atual - ano
+# if diferenca < 18:
+#     print(f'{nome}, você ainda vai se alistar para o serviço militar. Faltam {18 - diferenca} ano(s)')
+# elif diferenca == 18:
+#     print(f'{nome}, é hora de se alistar para o serviço militar!')
+# else:
+#     print(f'Você passou da hora de se alistar para o serviço militar em {diferenca - 18} ano(s), {nome}.')
+
+
+# 40 - Crie um programa que leia duas notas de um aluno e calcule sua média. Mostre uma mensagem no final de acordo com a media atingida
+# Media abaixo de 5.0: REPROVADO
+# Media entre 5.0 e 6.9: RECUPERACAO
+# Media 7.0 ou superior: APROVADO
+
+# import statistics
+
+# try:
+#     nota_01: float = float(input("Insira a primeira nota: "))
+#     nota_02: float = float(input("Insira a segunda nota: "))
+#     media: float =  statistics.median([nota_01, nota_02])
+# except ValueError:
+#     print("Valores inseridos incorretamente.")
+
+# if media < 5.0:
+#     print(f'Aluno REPROVADO!. Média de notas de {media} pontos.')
+# elif media >= 5.0 and media <= 6.9:
+#     print(f'Aluno em RECUPERAÇÃO. Média de notas de {media} pontos.')
+# else:
+#     print(f'Aluno APROVADO com uma média de notas de {media} pontos. PARABÉNS!')
+
+
+# 41 - A confederação nacional de natação precisa de um programa que leia o ano de nascimento de um atleta e mostre sua categoria,
+# de acordo com a idade:
+# até 9 anos : mirim
+# até 14 anos: infantil
+# até 19 anos: Junior
+# até 20 anos: Senior
+# Acima: Master
+
+# from datetime import datetime
+
+# while True:
+#     try:
+#         ano: int = int(input("Informe o ano de nascimento do atleta: "))
+#         if ano < 0:
+#             print("Gentileza informar o ano corretamente.")
+#             continue
+#         break
+#     except ValueError:
+#         print("Dados informados incorretamente.")
+
+# ano_atual: int = datetime.now().year
+# idade: int = ano_atual - ano
+
+# if idade <= 9:
+#     print("Atleta deve ser inscrito na categoria: MIRIM")
+# elif idade <= 14:
+#     print("Atleta deve ser inscrito na categoria: INFANTIL")
+# elif idade <= 19:
+#     print("Atleta deve ser inscrito na categoria: JUNIOR")
+# elif idade <= 20:
+#     print("Atleta deve ser inscrito na categoria: SENIOR")
+# else:
+#     print("Atleta deve ser inscrito na categoria: MASTER")
+
+
+# 42 - Refazer exercicio 35
+
+# try:
+#     x: float = float(input("Insira o primeiro lado (x): "))
+#     y: float = float(input("Insira o segundo lado (y): "))
+#     z: float = float(input("Insira o terceiro lado (z): "))
+
+#     if x + y > z and x + z > y and y + z > x:
+#         print("As retas informadas formam um triângulo!")
+#         if x == y == z:
+#             print("-=-" * 20)
+#             print("Seu triângulo é equilátero!")
+#             print("-=-" * 20)
+#         elif x != y != z:
+#             print("-=-" * 20)
+#             print("Seu triângulo é escaleno!")
+#             print("-=-" * 20)
+#         else:
+#             print("-=-" * 20)
+#             print("Seu triângulo é isósceles!")
+#             print("-=-" * 20)
+#     else:
+#         print("As retas informadas não formam um triângulo.")
+# except ValueError as m:
+#     print(m)
+
+# 43 - Desenvolva uma logica que leia o peso e a altura de uma pessoa, calcula seu imc e mostre seu status de acordo com tabela:
+# Abaixo de 18.5: Abaixo do peso
+# Entre 18.5 e 25: Peso ideal
+# 25 ate 30: sobrepeso
+# 30 até 40: Obesidade
+# Acima de 40: Obesidade morbida
+
+# try:
+#     peso: float = float(input("Informe o seu peso: "))
+#     altura: float = float(input("Informe sua altura: "))
+# except ValueError:
+#     print("Formato de dados incorretos.")
+
+# imc: float = peso / (altura ** 2)
+# if imc < 18.5:
+#     print(f'Você está muito abaixo do peso. Seu IMC é de: {imc:.2f}.')
+# elif imc >= 18.5 and imc < 25.0:
+#     print(f'Seu peso está ideal. Seu IMC é de: {imc:.2f}.')
+# elif imc >= 25.0 and imc < 30.0:
+#     print(f'Você está com sobrepeso. Seu IMC é de: {imc:.2f}')
+# elif imc >= 40.0 and imc <= 40.0:
+#     print(f'Você está obeso. Seu IMC está em {imc:.2f}')
+# else:
+#     print(f'Você está com obesidade mórbida. Seu IMC está em {imc:.2f}')
+
+
+
+# 44 - Elabore um programa que calcule o valor a ser pago por um produto, considerando o seu preço normal e condição de pagamento:
+# A vista dinheiro/cheque: 10% de desconto
+# A vista cartao : 5% de desconto
+# em até 2 vezes no cartão: preço normal
+# 3x ou mais no cartão: 20% de juros
+
+# try:
+#     preco: float = float(input("Informe o valor do produto: "))
+    
+#     print("Escolha a condição de pagamento:")
+#     print("--------" * 20)
+#     print("[ 1 ] - À vista dinheiro/Cheque")
+#     print("[ 2 ] - À vista cartão")
+#     print("[ 3 ] - Até 2x no cartão")
+#     print("[ 4 ] - Até 3x ou mais no cartão")
+#     print("--------" * 20)
+
+#     opcao: int = int(input("Escolha sua opção de pagamento: "))
+
+#     if opcao == 1:
+#         print(f'O valor do produto será de R$ {preco - (preco * 0.10):.2f} reais.')
+#     elif opcao == 2:
+#         print(f'O valor do produto será de R$ {preco - (preco * 0.05):.2f} reais.')
+#     elif opcao == 3:
+#         print(f'O valor do produto será de R$ {preco:.2f} reais.')
+#     elif opcao == 4:
+#         print(f'O valor do produto será de R$ {preco + (preco * 0.20):.2f} reais.')
+#     else:
+#         print("Opção inválida! Escolha uma opção entre 1 e 4.")
+
+# except ValueError:
+#     print("Erro: Você deve inserir um número válido.")
+
+
+# 45 - Crie um programa que faça o computador jogar jokenpô com você.
+
+# from random import choice
+# from time import sleep
+
+# jogador: str =  input("Insira sua escolha: ").lower()
+# opcoes: list = ["pedra", "papel", "tesoura"]
+# computador: str = choice(opcoes)
+# print("JO...")
+# sleep(1)
+# print("KEN...")
+# sleep(1)
+# print("PO...")
+# sleep(1)
+# print("Ambos mostram as mãos...")
+# sleep(1)
+# if jogador == "pedra" and computador == "papel":
+#     print("VocÊ PERDEU!")
+#     print(f'Você escolheu {jogador} e o computador escolheu {computador}.')
+# elif jogador == "pedra" and computador == "tesoura":
+#     print("Você GANHOU!")
+#     print(f'Você escolheu {jogador} e o computador escolheu {computador}.')
+# elif jogador == "papel" and computador == "tesoura":
+#     print("Você PERDEU!")
+#     print(f'Você escolheu {jogador} e o computador escolheu {computador}.')
+# elif jogador == "papel" and computador == "pedra":
+#     print("Você GANHOU!")
+#     print(f'Você escolheu {jogador} e o computador escolheu {computador}.')
+# elif jogador == "tesoura" and computador == "pedra":
+#     print("Você PERDEU!")
+#     print(f'Você escolheu {jogador} e o computador escolheu {computador}.')
+# elif jogador == "tesoura" and computador == "papel":
+#     print("Você GANHOU!")
+#     print(f'Você escolheu {jogador} e o computador escolheu {computador}.')
+# else:
+#     print("Empatamos! Ambas as nossas opções foram iguais.")
+#     print(f'Você escolheu {jogador} e o computador escolheu {computador}.')
+
+# 46 - Faça um programa que mostre uma tela com uma contagem regressiva para o estouro de fogos de artificio. Indo de 10 a 0 com uma pausa de 1 segundo entre elas.
+
+# 47 - Crie um programa que mostre na tela todos os números pares que estão no intervalo entre 1 a 50
+
+# 48 - Faça um programa que calcula a soma entre todos os números impares que são multiplos de 3 e que se encontram no intervalo entre 1 a 500
+ 
+# 49 - Refaça o exercicio 9, mostrando a tabuada de um número que o usuário escolher. Só que agora utilizando o laço for.
+
+# 50 - Desenvolva um programa que leia seis números inteiros e mostre a soma apenas daqueles que forem pares. Se o valor digitado for ímpar, desconsidere-o.
+
+# 51 - Desenvolva um programa que leia o primeiro termo e a razao de uma PA. No final mostre os 10 primeiros termos dessa progressão.
+
+# 52 - Faça um programa que leia um número inteiro e diga se ele é ou não um número primo.
+
+# 53 - Crie um programa criando uma frase qualquer e diga se ela é um palindromo, desconsiderando os espaços.
+
+# 54 - Crie um programa que leia o ano de nascimento de sete pessoas. No final, mostre quantas pessoas ainda não atingiram a maioridade e quantas já são maiores.
+
+# 55 - Faça um programa qu leia o peso de 5 pessoas. No final, mostre qual foi o mair e o menor peso lido
+
+# 56 - Desenvolva um programa que leia, nome, idade e sexo de 4 pessoas. No final do programa mostre:
+# a média de idade do grupo
+# qual o nome do homem mais velho
+# Quantas mulheres tem menos de 20 anos
