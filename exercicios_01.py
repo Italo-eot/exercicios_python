@@ -738,11 +738,46 @@
 
 # 46 - Faça um programa que mostre uma tela com uma contagem regressiva para o estouro de fogos de artificio. Indo de 10 a 0 com uma pausa de 1 segundo entre elas.
 
+# from time import sleep
+
+# for c in range(10, 0, -1):
+#     print(c)
+#     sleep(1)
+# fogos: str = print("BUM!  BUM !  POOOOW!!!")
+
+
 # 47 - Crie um programa que mostre na tela todos os números pares que estão no intervalo entre 1 a 50
 
+# for c in range(1, 50):
+#     if c % 2 == 0: 
+#         print(c, end=' ')
+
+#COMENTÁRIO: Para printar as informações na "mesma linha", podemos utilizar end= dentro do nosso comando PRINT.
+
+
 # 48 - Faça um programa que calcula a soma entre todos os números impares que são multiplos de 3 e que se encontram no intervalo entre 1 a 500
+
+# try:
+#     soma: int = 0
+#     contador: int = 0
+#     for c in range(1, 501):
+#         if c % 2 != 0 and c % 3 == 0:
+#             contador += 1
+#             soma += c
+#     print(f'A soma de todos os {contador} números ímpares entre 1 a 500 é: {soma}')
+
+# except ValueError as m:
+#     print(m)
  
 # 49 - Refaça o exercicio 9, mostrando a tabuada de um número que o usuário escolher. Só que agora utilizando o laço for.
+
+try:
+    numero: int = int(input("Insira seu número: "))
+    for i in range(1, 11):
+        tabuada = i * numero
+        print(f'A multiplicação de {numero} x {i} = {tabuada}')
+except ValueError as a:
+    print(a)
 
 # 50 - Desenvolva um programa que leia seis números inteiros e mostre a soma apenas daqueles que forem pares. Se o valor digitado for ímpar, desconsidere-o.
 
