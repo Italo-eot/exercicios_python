@@ -771,25 +771,76 @@
  
 # 49 - Refaça o exercicio 9, mostrando a tabuada de um número que o usuário escolher. Só que agora utilizando o laço for.
 
-try:
-    numero: int = int(input("Insira seu número: "))
-    for i in range(1, 11):
-        tabuada = i * numero
-        print(f'A multiplicação de {numero} x {i} = {tabuada}')
-except ValueError as a:
-    print(a)
+# try:
+#     numero: int = int(input("Insira seu número: "))
+#     for i in range(1, 11):
+#         tabuada = i * numero
+#         print(f'A multiplicação de {numero} x {i} = {tabuada}')
+# except ValueError as a:
+#     print(a)
 
 # 50 - Desenvolva um programa que leia seis números inteiros e mostre a soma apenas daqueles que forem pares. Se o valor digitado for ímpar, desconsidere-o.
 
+# soma: int = 0
+# numeros: int = 0
+# contador: int = 0
+# for c in range(1,7):
+#     numeros: int = int(input(f'Insira o {c}º número: '))
+#     if numeros % 2 == 0:
+#         soma += numeros
+#         contador += 1
+#     else:
+#         print("Número informado é ímpar. Vamos desconsidera-lo.")
+# print(f'A soma dos {contador} números pares informados é: {soma}')
+
 # 51 - Desenvolva um programa que leia o primeiro termo e a razao de uma PA. No final mostre os 10 primeiros termos dessa progressão.
 
+# linha: str = "==" * 20
+# print(linha)
+# print("10 TERMOS DE UMA PA".center(len(linha)))
+# print(linha)
+
+# try:
+#     termo: int = int(input("Primeiro termo: "))
+#     razao: int = int(input("Razão: "))
+#     decimo: int = termo + (10 - 1) * razao
+
+#     for c in range(termo, decimo + razao, razao):
+#         print(f'{c}', end=" -> ")
+#     print("ACABOU!")
+
+# except ValueError as m:
+#     print(m)
+
+
 # 52 - Faça um programa que leia um número inteiro e diga se ele é ou não um número primo.
+
+try:
+    numero: int = int(input("Digite um número: "))
+    total: int = 0
+    for c in range(1, numero + 1):
+        if numero % c == 0:
+            print('\033[34m', end='')
+            total += 1
+        else:
+            print('\033[m', end='')
+        print(f'{c}', end=' ')
+
+    print(f'\nO número {numero} foi divisível {total} vezes')
+    if total == 2:
+        print('E por isso ele é PRIMO!')
+    else:
+        print('E por isso ele NÃO É PRIMO!')
+
+except ValueError as m:
+    print(m)
+
 
 # 53 - Crie um programa criando uma frase qualquer e diga se ela é um palindromo, desconsiderando os espaços.
 
 # 54 - Crie um programa que leia o ano de nascimento de sete pessoas. No final, mostre quantas pessoas ainda não atingiram a maioridade e quantas já são maiores.
 
-# 55 - Faça um programa qu leia o peso de 5 pessoas. No final, mostre qual foi o mair e o menor peso lido
+# 55 - Faça um programa qu leia o peso de 5 pessoas. No final, mostre qual foi o maior e o menor peso lido
 
 # 56 - Desenvolva um programa que leia, nome, idade e sexo de 4 pessoas. No final do programa mostre:
 # a média de idade do grupo
