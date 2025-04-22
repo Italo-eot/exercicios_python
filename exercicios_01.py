@@ -815,34 +815,114 @@
 
 # 52 - Faça um programa que leia um número inteiro e diga se ele é ou não um número primo.
 
-try:
-    numero: int = int(input("Digite um número: "))
-    total: int = 0
-    for c in range(1, numero + 1):
-        if numero % c == 0:
-            print('\033[34m', end='')
-            total += 1
-        else:
-            print('\033[m', end='')
-        print(f'{c}', end=' ')
+# try:
+#     numero: int = int(input("Digite um número: "))
+#     total: int = 0
+#     for c in range(1, numero + 1):
+#         if numero % c == 0:
+#             print('\033[34m', end='')
+#             total += 1
+#         else:
+#             print('\033[m', end='')
+#         print(f'{c}', end=' ')
 
-    print(f'\nO número {numero} foi divisível {total} vezes')
-    if total == 2:
-        print('E por isso ele é PRIMO!')
-    else:
-        print('E por isso ele NÃO É PRIMO!')
+#     print(f'\nO número {numero} foi divisível {total} vezes')
+#     if total == 2:
+#         print('E por isso ele é PRIMO!')
+#     else:
+#         print('E por isso ele NÃO É PRIMO!')
 
-except ValueError as m:
-    print(m)
+# except ValueError as m:
+#     print(m)
 
 
 # 53 - Crie um programa criando uma frase qualquer e diga se ela é um palindromo, desconsiderando os espaços.
 
+# try:
+#     frase: str = input("Digite uma frase: ")
+#     frase_sem_espaco: str = frase.replace(" ", "").upper().strip()
+#     frase_invertida: str = frase_sem_espaco[::-1]
+#     print(f'O inverso de {frase_sem_espaco} é {frase_invertida}.')
+#     if frase_sem_espaco == frase_invertida:
+#         print("Temos um palíndromo!")
+#     else:
+#         print("A frase digitada não é um palíndromo!")
+# except ValueError as mensagem:
+#     print(mensagem)
+
+
 # 54 - Crie um programa que leia o ano de nascimento de sete pessoas. No final, mostre quantas pessoas ainda não atingiram a maioridade e quantas já são maiores.
 
+# from datetime import date
+
+# menor: int = 0
+# maior: int = 0
+
+# for c in range(1,8):
+#     datas: int = int(input(f'Em que ano a {c}ª pessoa nasceu? '))
+#     if (date.today().year - datas) < 18:
+#         menor += 1
+#     else:
+#         maior += 1
+# print(f'Ao todo tivemos {maior} pessoas maiores de idade.\nE também tivemos {menor} pessoas menores de idade.')
+
+
+
 # 55 - Faça um programa qu leia o peso de 5 pessoas. No final, mostre qual foi o maior e o menor peso lido
+
+# try:
+#     pesos: list = []
+
+#     for c in range(1,6):
+#         peso: float = float(input(f'Peso da {c}ª pessoa: '))
+#         pesos.append(peso)
+#     print(f'O maior peso lido foi de {max(pesos)}kg.')
+#     print(f'O menor peso lido foi de {min(pesos)}kg.')
+
+# except ValueError as m:
+#     print(m)
 
 # 56 - Desenvolva um programa que leia, nome, idade e sexo de 4 pessoas. No final do programa mostre:
 # a média de idade do grupo
 # qual o nome do homem mais velho
 # Quantas mulheres tem menos de 20 anos
+
+
+nome: str = ''
+idade: int = 0
+sexo: str = ''
+totalidade: int = 0
+mediaidade: float = 0
+maiorhomem: int = 0
+nomehomem: str = ''
+mulheres: int = 0
+
+for c in range(1, 5):
+    print(f'----- {c}ª PESSOA -----')
+    nome = input("Nome: ")
+    idade = int(input("Idade: "))
+    sexo = input("Sexo [M/F]: ").strip().upper()
+    totalidade += idade
+    if c == 1 and sexo == "M":
+        maiorhomem = idade
+        nomehomem = nome
+    if sexo == "M" and idade > maiorhomem:
+        maiorhomem = idade
+        nomehomem = nome
+    if sexo == "F" and idade < 20:
+        mulheres += 1
+
+mediaidade = totalidade / 4
+
+print(f'A média de idade do grupo é de {mediaidade} anos.')
+if nomehomem != '':
+    print(f'👴 O homem mais velho é {nomehomem} com {maiorhomem} anos.')
+else:
+    print("❌ Não há homens cadastrados.")
+
+if mulheres > 0:
+    print(f'👧 Há {mulheres} mulher(es) com menos de 20 anos.')
+else:
+    print("❌ Não há mulheres cadastradas.")
+
+
