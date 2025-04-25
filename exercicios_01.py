@@ -888,41 +888,117 @@
 # Quantas mulheres tem menos de 20 anos
 
 
-nome: str = ''
-idade: int = 0
-sexo: str = ''
-totalidade: int = 0
-mediaidade: float = 0
-maiorhomem: int = 0
-nomehomem: str = ''
-mulheres: int = 0
+# nome: str = ''
+# idade: int = 0
+# sexo: str = ''
+# totalidade: int = 0
+# mediaidade: float = 0
+# maiorhomem: int = 0
+# nomehomem: str = ''
+# mulheres: int = 0
 
-for c in range(1, 5):
-    print(f'----- {c}ª PESSOA -----')
-    nome = input("Nome: ")
-    idade = int(input("Idade: "))
-    sexo = input("Sexo [M/F]: ").strip().upper()
-    totalidade += idade
-    if c == 1 and sexo == "M":
-        maiorhomem = idade
-        nomehomem = nome
-    if sexo == "M" and idade > maiorhomem:
-        maiorhomem = idade
-        nomehomem = nome
-    if sexo == "F" and idade < 20:
-        mulheres += 1
+# for c in range(1, 5):
+#     print(f'----- {c}ª PESSOA -----')
+#     nome = input("Nome: ")
+#     idade = int(input("Idade: "))
+#     sexo = input("Sexo [M/F]: ").strip().upper()
+#     totalidade += idade
+#     if c == 1 and sexo == "M":
+#         maiorhomem = idade
+#         nomehomem = nome
+#     if sexo == "M" and idade > maiorhomem:
+#         maiorhomem = idade
+#         nomehomem = nome
+#     if sexo == "F" and idade < 20:
+#         mulheres += 1
 
-mediaidade = totalidade / 4
+# mediaidade = totalidade / 4
 
-print(f'A média de idade do grupo é de {mediaidade} anos.')
-if nomehomem != '':
-    print(f'👴 O homem mais velho é {nomehomem} com {maiorhomem} anos.')
-else:
-    print("❌ Não há homens cadastrados.")
+# print(f'A média de idade do grupo é de {mediaidade} anos.')
+# if nomehomem != '':
+#     print(f'👴 O homem mais velho é {nomehomem} com {maiorhomem} anos.')
+# else:
+#     print("❌ Não há homens cadastrados.")
 
-if mulheres > 0:
-    print(f'👧 Há {mulheres} mulher(es) com menos de 20 anos.')
-else:
-    print("❌ Não há mulheres cadastradas.")
+# if mulheres > 0:
+#     print(f'👧 Há {mulheres} mulher(es) com menos de 20 anos.')
+# else:
+#     print("❌ Não há mulheres cadastradas.")
+
+#57 - Faça um programa que leia o sexo de uma pessoa, mas so aceite os valores "M" ou "F". Caso esteja errado, peça a digitação novamente até ter um valor correto.
+
+# while True:
+#     sexo: str = str(input("Gentileza informar o sexo. Se M/F: ")).strip().upper()[0]
+#     if sexo != "M" and sexo != "F":
+#         print("Informe um sexo válido.")
+#         continue
+#     break
+# print(f'Sexo {sexo} registrado com sucesso.')
 
 
+#58 - Melhore o jogo do DESAFIO 028 onde o computador vai "pensar" em um número entre 0 e 10. Só que agora o jogador vai tentar adivinhar até acertar, mostrando no final
+# quantos palpites foram necessários para vencer.
+
+# import random
+# from time import sleep
+# tentativas: int = 0
+# numero: int = random.randint(0, 10)
+# print("-=-" * 20)
+# print("Sou seu computador...")
+# sleep(1)
+# print("Acabei de pensar em um número entre 0 e 10.\nSerá que você consegue adivinhar qual foi?")
+# print("-=-" * 20)
+
+# while True:
+#     adivinha: int = int(input("Qual é o seu palpite? "))
+#     tentativas += 1
+#     if adivinha < numero:
+#         print("Mais...Tente mais uma vez.")
+#     elif adivinha > numero:
+#         print(f'Menos...Tente mais uma vez.')
+#         continue
+#     else:
+#         print(f'Acertou com {tentativas} tentativa(s). Escolhi {numero}. Parabéns!')
+#     break    
+
+
+#59 - Crie um programa que leia 2 valores e mostre um menu na tela:
+# [1] somar
+# [2] multiplicar
+# [3] maior
+# [4] novos numeros
+# [5] sair do programa
+# O programa deverá realizar a ação solicitada em cada caso.
+
+primeiro: int = int(input("Primeiro valor: "))
+segundo: int = int(input("Segundo valor: "))
+menu: int = 0
+
+while menu != 5:
+    print("[1] somar\n[2] multiplicar\n[3] maior\n[4] novos numeros\n[5] sair do programa")
+    menu: int = int(input(">>>>>> Qual é a sua opção? "))
+    if menu == 1:
+        print(f'A soma entre {primeiro} e {segundo} é: {primeiro + segundo}')
+    elif menu == 2:
+        print(f'A multiplicação entre {primeiro} e {segundo} é: {primeiro * segundo}')
+    elif menu == 3:
+        print(f'O maior número entre {primeiro} e {segundo} é: {max(primeiro, segundo)}')
+    elif menu == 4:
+        print("Informe os números novamente: ")
+        primeiro: int = int(input("Primeiro valor: "))
+        segundo: int = int(input("Segundo valor: "))
+    elif menu > 5:
+        print("Opção inválida. Tente novamente")
+    else:
+        print("Finalizando...")
+        print("=-==-" * 30)
+        print("Fim do programa. Volte sempre!")
+
+#60 - Faça um programa que leia um número qualquer e mostre o seu fatorial: Ex 5! = 5x4x3x2x1 = 120
+#61 - Refaça o DESAFIO 051, lendo o primeiro termo e a razao de uma PA, mostrando os 10 primeiros termos da progressão usando a estrutura WHILE
+#62 - Melhore o DESAFIO 61, perguntando para o usuário se ele quer mostrar mais alguns termos. O programa encerra quando ele disser que quer mostrar 0 termos.
+#63 - Escreva um programa que leia um número N inteiro qualquer e mostre na tela os N primeiros elementos de uma sequência fibonacci. Ex: 0 - 1 - 1 - 2 - 3 - 5 - 8
+#64 - Crie um programa que leia vários números inteiros pelo teclado. O programa só vai parar quando o usuário digitar o valor 999, que é a condição de parada.
+# No final mostre quantos números foram digitados e qual foi a soma entre eles (desconsiderando o FLAG)
+#65 - Crie um programa que leia vários números inteiros pelo teclado. No final da execução, mostre a média entre todos os valores e qual foi o maior e o menor valor lido.
+# o programa deve perguntar ao usuário se ele quer ou não continuar a digitar valores.
