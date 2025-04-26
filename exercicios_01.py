@@ -970,34 +970,126 @@
 # [5] sair do programa
 # O programa deverá realizar a ação solicitada em cada caso.
 
-primeiro: int = int(input("Primeiro valor: "))
-segundo: int = int(input("Segundo valor: "))
-menu: int = 0
+# from time import sleep
 
-while menu != 5:
-    print("[1] somar\n[2] multiplicar\n[3] maior\n[4] novos numeros\n[5] sair do programa")
-    menu: int = int(input(">>>>>> Qual é a sua opção? "))
-    if menu == 1:
-        print(f'A soma entre {primeiro} e {segundo} é: {primeiro + segundo}')
-    elif menu == 2:
-        print(f'A multiplicação entre {primeiro} e {segundo} é: {primeiro * segundo}')
-    elif menu == 3:
-        print(f'O maior número entre {primeiro} e {segundo} é: {max(primeiro, segundo)}')
-    elif menu == 4:
-        print("Informe os números novamente: ")
-        primeiro: int = int(input("Primeiro valor: "))
-        segundo: int = int(input("Segundo valor: "))
-    elif menu > 5:
-        print("Opção inválida. Tente novamente")
-    else:
-        print("Finalizando...")
-        print("=-==-" * 30)
-        print("Fim do programa. Volte sempre!")
+# primeiro: int = int(input("Primeiro valor: "))
+# segundo: int = int(input("Segundo valor: "))
+# menu: int = 0
+
+# while menu != 5:
+#     print("[1] somar\n[2] multiplicar\n[3] maior\n[4] novos numeros\n[5] sair do programa")
+#     menu: int = int(input(">>>>>> Qual é a sua opção? "))
+#     sleep(2)
+#     if menu == 1:
+#         print(f'A soma entre {primeiro} e {segundo} é: {primeiro + segundo}')
+#     elif menu == 2:
+#         print(f'A multiplicação entre {primeiro} e {segundo} é: {primeiro * segundo}')
+#     elif menu == 3:
+#         print(f'O maior número entre {primeiro} e {segundo} é: {max(primeiro, segundo)}')
+#     elif menu == 4:
+#         print("Informe os números novamente: ")
+#         primeiro: int = int(input("Primeiro valor: "))
+#         segundo: int = int(input("Segundo valor: "))
+#     elif menu > 5:
+#         print("Opção inválida. Tente novamente")
+#     else:
+#         print("Finalizando...")
+#         print("=-==-" * 30)
+#         print("Fim do programa. Volte sempre!")
 
 #60 - Faça um programa que leia um número qualquer e mostre o seu fatorial: Ex 5! = 5x4x3x2x1 = 120
-#61 - Refaça o DESAFIO 051, lendo o primeiro termo e a razao de uma PA, mostrando os 10 primeiros termos da progressão usando a estrutura WHILE
+
+# import math
+
+# fatorial: int = int(input("Digite um número para calcular o seu fatorial: "))
+
+# print(f'Calculando {fatorial}! = ', end='')
+# for c in range(2, fatorial + 1)[::-1]:
+#     print(f'{c}', end=' x ')
+# print(f'1 = {math.factorial(fatorial)}')
+
+# UTILIZANDO WHILE
+
+# fatorial: int = int(input("Digite o número para calcular o seu fatorial: "))
+# contador: int = fatorial
+
+# print(f'Calculando {fatorial}! = ', end='')
+# while contador > 0:
+#     print(f'{contador}', end='')
+#     if contador > 1:
+#         print(" x ", end='')
+#     else:
+#         print(" = ", end='')
+#     contador -= 1
+# print(f'{math.factorial(fatorial)}')
+
+
+#61 - Refaça o DESAFIO 51, lendo o primeiro termo e a razao de uma PA, mostrando os 10 primeiros termos da progressão usando a estrutura WHILE
+
+# linha: str = "==" * 20
+# print(linha)
+# print("10 TERMOS DE UMA PA".center(len(linha)))
+# print(linha)
+
+# try:
+#     termo: int = int(input("Primeiro termo: "))
+#     razao: int = int(input("Razão: "))
+#     decimo: int = termo + (10 - 1) * razao
+
+#     while termo <= decimo:
+#         print(f'{termo}', end=" -> ")
+#         termo += razao
+#     print("ACABOU!")
+
+# except ValueError as m:
+#     print(m)
+
 #62 - Melhore o DESAFIO 61, perguntando para o usuário se ele quer mostrar mais alguns termos. O programa encerra quando ele disser que quer mostrar 0 termos.
+
+# linha: str = "==" * 20
+# print(linha)
+# print("10 TERMOS DE UMA PA".center(len(linha)))
+# print(linha)
+
+# try:
+#     termo: int = int(input("Primeiro termo: "))
+#     razao: int = int(input("Razão: "))
+#     iterador: int = 1
+#     contagem: int = 10
+#     limite: int = 0
+
+#     while contagem != 0:
+#         limite = limite + contagem
+#         while iterador <= limite:
+#             print(f'{termo}', end=" -> ")
+#             termo += razao
+#             iterador += 1
+#         print("Aguardando...")
+#         contagem: int = int(input("Quantos termos você quer mostrar a mais? "))
+#     print(f'Progressão finalizada com {limite} termos mostrados')
+
+# except ValueError as m:
+#     print(m)
+
 #63 - Escreva um programa que leia um número N inteiro qualquer e mostre na tela os N primeiros elementos de uma sequência fibonacci. Ex: 0 - 1 - 1 - 2 - 3 - 5 - 8
+
+print("---" * 10)
+print("Sequência de Fibonacci")
+print("---" * 10)
+numero: int = int(input("Informe a quantidade de números que deseja apresentar: "))
+a: int = 0
+b: int = 1
+c: int = 0
+iterador: int = 0
+while iterador < numero:
+    print(f'{c}', end=' -> ')
+    a = b
+    b = c
+    c = a + b
+    iterador += 1
+print("FIM")
+
+
 #64 - Crie um programa que leia vários números inteiros pelo teclado. O programa só vai parar quando o usuário digitar o valor 999, que é a condição de parada.
 # No final mostre quantos números foram digitados e qual foi a soma entre eles (desconsiderando o FLAG)
 #65 - Crie um programa que leia vários números inteiros pelo teclado. No final da execução, mostre a média entre todos os valores e qual foi o maior e o menor valor lido.
