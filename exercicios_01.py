@@ -1073,24 +1073,170 @@
 
 #63 - Escreva um programa que leia um número N inteiro qualquer e mostre na tela os N primeiros elementos de uma sequência fibonacci. Ex: 0 - 1 - 1 - 2 - 3 - 5 - 8
 
-print("---" * 10)
-print("Sequência de Fibonacci")
-print("---" * 10)
-numero: int = int(input("Informe a quantidade de números que deseja apresentar: "))
-a: int = 0
-b: int = 1
-c: int = 0
-iterador: int = 0
-while iterador < numero:
-    print(f'{c}', end=' -> ')
-    a = b
-    b = c
-    c = a + b
-    iterador += 1
-print("FIM")
+# print("---" * 10)
+# print("Sequência de Fibonacci")
+# print("---" * 10)
+# numero: int = int(input("Informe a quantidade de números que deseja apresentar: "))
+# a: int = 0
+# b: int = 1
+# c: int = 0
+# iterador: int = 0
+# while iterador < numero:
+#     print(f'{c}', end=' -> ')
+#     a = b
+#     b = c
+#     c = a + b
+#     iterador += 1
+# print("FIM")
 
 
 #64 - Crie um programa que leia vários números inteiros pelo teclado. O programa só vai parar quando o usuário digitar o valor 999, que é a condição de parada.
 # No final mostre quantos números foram digitados e qual foi a soma entre eles (desconsiderando o FLAG)
+
+# soma: int = 0
+# contador: int = 0
+# numero: int = int(input("Digite um número: "))
+
+# while numero != 999:
+#     soma += numero
+#     contador += 1
+#     numero: int = int(input("Digite um número: "))
+
+# print(f'A quantidade de números digitados foi {contador} e a somatória de todos os números é: {soma}')
+
+
 #65 - Crie um programa que leia vários números inteiros pelo teclado. No final da execução, mostre a média entre todos os valores e qual foi o maior e o menor valor lido.
 # o programa deve perguntar ao usuário se ele quer ou não continuar a digitar valores.
+
+# soma: int = 0
+# contador: int = 0
+# continuar: str = "S"
+# lista: list = []
+
+# while continuar == "S":
+#     numero: int = int(input("Digite um número: "))
+#     soma += numero
+#     lista.append(numero)
+#     contador += 1
+#     continuar: str = str(input("Deseja continuar? [S/N] ")).upper()
+# print(f'A média entre os valores digitados é {soma/contador}. O maior valor digitado foi {max(lista)} e o menor valor digitado foi {min(lista)}')
+
+#66 - Crie um programa que leia vários números inteiros pelo teclado. O programa só vai parar quando o usuário digitar o valor 999, que é a condição de parada. No final,
+# mostre quantos números foram digitados e qual foi a soma entre eles (DESCONSIDERANDO O FLAG) - Utilizar o modo de interrupção de repetições/laços.
+
+# soma: int = 0
+# contador: int = 0
+# lista: list = []
+
+# while True:
+#     numero: int = int(input("Digite um número (999 para parar): "))
+#     if numero == 999:
+#         break
+#     soma += numero
+#     contador += 1
+#     lista.append(numero)
+
+# print(f'A média entre os valores digitados é {soma/contador}. O maior valor digitado foi {max(lista)} e o menor valor digitado foi {min(lista)}')
+
+#67 - Faça um programa que mostre a tabuada de vários números, um de cada vez, para cada valor digitado pelo usuário. O programa será interrompido quando o número
+# digitado for NEGATIVO.
+
+# try:
+#     while True:
+#         numero: int = int(input("Digite um número para apresentação de tabuada: "))
+#         if numero <= 0:
+#             break
+#         print("-=-=-" * 30)
+#         print(f'A TABUADA DO NÚMERO {numero}.')
+#         print("-=-=-" * 30)
+#         for c in range(1, 11):
+#             tabuada: int = c * numero
+#             print(f'{numero} x {c} = {tabuada}')
+#     print("PROGRAMA TABUADA ENCERRADO. Volte Sempre!")
+
+# except ValueError as m:
+#     print(m)
+
+#68 - Faça um programa que jogue PAR ou IMPAR com o computador. O jogo só será interrompido quando o jogador PERDER, mostrando o total de vitórias consecutivas
+# que ele conquistou no final do jogo.
+
+# import random
+
+
+# print("=-=" * 30)
+# print("VAMOS JOGAR PAR OU ÍMPAR")
+# print("=-=" * 30)
+
+# contador: int = 0
+
+# while True:
+#     jogador: int = int(input("Diga um valor: "))
+#     computador: int = random.randint(0, 10)
+#     total: int = jogador + computador
+#     escolha: str = ' '
+#     while escolha not in 'PI':
+#         escolha: str = str(input("PAR ou ÍMPAR? [P/I] ")).strip().upper()[0]
+#     print(f'Você jogou {jogador} e o computador {computador}. Total de {total} ', end='')
+#     if total % 2 == 0:
+#         print("DEU PAR.")
+#     else:
+#         print("DEU ÍMPAR.")
+#     if escolha == "P":
+#         if total % 2 == 0:
+#             print("Você VENCEU!")
+#             contador += 1
+#         else:
+#             print("Você PERDEU!")
+#             break
+#     elif escolha == "I":
+#         if total % 2 == 1:
+#             print("Você VENCEU!")
+#             contador += 1
+#         else:
+#             print("Você PERDEU!")
+#             break
+# print(f'GAME OVER! Você venceu {contador}')
+    
+
+
+
+#69 - Crie um programa que leia a idade e o sexo de várias pessoas. A cada pessoa cadastrada o programa deverá perguntar se o usuário quer ou não continuar. No final mostre:
+# Quantas pessoas tem mais de 18 anos.
+# Quantos homens foram cadastrados
+# Quantas mulheres tem menos de 20 anos.
+
+contador_idade: int = 0
+contador_homem: int = 0
+contador_mulheres: int = 0
+continua: str = ' '
+
+while True:
+    print("---" * 40)
+    print("CADASTRE UM PESSOA")
+    print("---" * 40)
+    idade: int = int(input("Idade: "))
+    sexo: str = str(input("Sexo: [M/F] ")).strip().upper()[0]
+    print("---" * 40)
+    if idade >= 18 or sexo == "M":
+        contador_idade += 1
+        contador_homem += 1
+    elif sexo == "M":
+        contador_homem += 1
+    elif idade < 20 and sexo == "F":
+        contador_mulheres += 1
+    continua: str = str(input("Quer continuar? [S/N] ")).strip().upper()[0]
+    if continua != "S":
+        break
+print(f'Total de pessoas com mais de 18 anos: {contador_idade}.')
+print(f'Ao todo temos {contador_homem} homens cadastrados.')
+print(f'E temos {contador_mulheres} mulheres com menos de 20 anos.')
+
+
+#70 - Crie um programa que leia o nome e o preço de vários produtos. O programa deverá perguntar se o usuário vai continuar. No final mostre:
+# Qual é o total gasto na compra
+# Quantos produtos custam mais de 1000 reais
+# Qual é o nome do produto mais barato.
+
+#71 - Crie um programa que simule o funcionamento de um caixa eletrônico. No inicio pergunte ao usuário qual o valor a ser sacado. O programa vai informar quantas cédulas de 
+# cada valor serão entregues.
+# OBS: considere que o caixa possui cédulas de 50, 20, 10 e 1
