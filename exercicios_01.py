@@ -1205,31 +1205,31 @@
 # Quantos homens foram cadastrados
 # Quantas mulheres tem menos de 20 anos.
 
-contador_idade: int = 0
-contador_homem: int = 0
-contador_mulheres: int = 0
-continua: str = ' '
+# contador_idade: int = 0
+# contador_homem: int = 0
+# contador_mulheres: int = 0
+# continua: str = ' '
 
-while True:
-    print("---" * 40)
-    print("CADASTRE UM PESSOA")
-    print("---" * 40)
-    idade: int = int(input("Idade: "))
-    sexo: str = str(input("Sexo: [M/F] ")).strip().upper()[0]
-    print("---" * 40)
-    if idade >= 18 or sexo == "M":
-        contador_idade += 1
-        contador_homem += 1
-    elif sexo == "M":
-        contador_homem += 1
-    elif idade < 20 and sexo == "F":
-        contador_mulheres += 1
-    continua: str = str(input("Quer continuar? [S/N] ")).strip().upper()[0]
-    if continua != "S":
-        break
-print(f'Total de pessoas com mais de 18 anos: {contador_idade}.')
-print(f'Ao todo temos {contador_homem} homens cadastrados.')
-print(f'E temos {contador_mulheres} mulheres com menos de 20 anos.')
+# while True:
+#     print("---" * 40)
+#     print("CADASTRE UM PESSOA")
+#     print("---" * 40)
+#     idade: int = int(input("Idade: "))
+#     sexo: str = str(input("Sexo: [M/F] ")).strip().upper()[0]
+#     print("---" * 40)
+#     if idade >= 18 or sexo == "M":
+#         contador_idade += 1
+#         contador_homem += 1
+#     elif sexo == "M":
+#         contador_homem += 1
+#     elif idade < 20 and sexo == "F":
+#         contador_mulheres += 1
+#     continua: str = str(input("Quer continuar? [S/N] ")).strip().upper()[0]
+#     if continua != "S":
+#         break
+# print(f'Total de pessoas com mais de 18 anos: {contador_idade}.')
+# print(f'Ao todo temos {contador_homem} homens cadastrados.')
+# print(f'E temos {contador_mulheres} mulheres com menos de 20 anos.')
 
 
 #70 - Crie um programa que leia o nome e o preço de vários produtos. O programa deverá perguntar se o usuário vai continuar. No final mostre:
@@ -1237,6 +1237,62 @@ print(f'E temos {contador_mulheres} mulheres com menos de 20 anos.')
 # Quantos produtos custam mais de 1000 reais
 # Qual é o nome do produto mais barato.
 
+# continuar: str = ' '
+# contador: int = 0
+# itens: int = 0
+# total: int = 0
+# produto_menor: str = ' '
+# menor: float = float('inf')
+
+# while True:
+#     produto: str = str(input("Nome do produto: "))
+#     preco: float = float(input("Preço: R$ "))
+#     if preco < menor:
+#         menor = preco
+#         produto_menor = produto
+#     if preco > 1000:
+#         contador += 1
+#     quantidade: int = int(input("Quantidade: "))
+#     itens += quantidade
+#     total += preco
+#     while continuar not in 'SN':
+#         continuar: str = str(input("Quer continuar? [S/N ] ")).strip().upper()[0]
+#     if continuar == "N":
+#         break
+# print("------------------- FIM DO PROGRAMA ---------------------")
+# print(f'O total da compra realizada foi de R${total}. E a quantidade de itens vendida foi de {itens}')
+# print(f'Temos {contador} produto(s) custando mais de R$ 1.000,00.')
+# print(f'O produto mais barato foi a {produto_menor} que custa {menor}.')
+
+
+
+
 #71 - Crie um programa que simule o funcionamento de um caixa eletrônico. No inicio pergunte ao usuário qual o valor a ser sacado. O programa vai informar quantas cédulas de 
 # cada valor serão entregues.
 # OBS: considere que o caixa possui cédulas de 50, 20, 10 e 1
+
+
+saque: int = 0
+r50: int = 0
+r20: int = 0
+r10: int = 0
+r1: int = 0
+
+print('                     INTER BANK                       ')
+print('-------------------- BEM VINDO! --------------------')
+print('Sistema operacional: Xpgdkffss v.01')
+while saque == 0:
+    saque: int = int(input("Que valor você quer sacar? R$ "))
+while saque >= 50:
+    saque -= 50
+    r50 += 1
+while saque >= 20:
+    saque -= 20
+    r20 += 1
+while saque >= 10:
+    saque -= 10
+    r10 += 1
+while saque >= 1:
+    saque -= 1
+    r1 += 1
+print(f'O saque do valor solicitado foi realizado com sucesso. \nLiberadas: \n{r50} cédulas de R$50,00.\n{r20} cédulas de R$20,00.\n{r10} cédulas de R$10,00.\n{r1} cédulas de R$1,00.')
