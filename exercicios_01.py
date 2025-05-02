@@ -1271,28 +1271,121 @@
 # cada valor serão entregues.
 # OBS: considere que o caixa possui cédulas de 50, 20, 10 e 1
 
+# saque: int = 0
+# r50: int = 0
+# r20: int = 0
+# r10: int = 0
+# r1: int = 0
 
-saque: int = 0
-r50: int = 0
-r20: int = 0
-r10: int = 0
-r1: int = 0
+# print('                     INTER BANK                       ')
+# print('-------------------- BEM VINDO! --------------------')
+# print('Sistema operacional: Xpgdkffss v.01')
+# while saque == 0:
+#     saque: int = int(input("Que valor você quer sacar? R$ "))
+# while saque >= 50:
+#     saque -= 50
+#     r50 += 1
+# while saque >= 20:
+#     saque -= 20
+#     r20 += 1
+# while saque >= 10:
+#     saque -= 10
+#     r10 += 1
+# while saque >= 1:
+#     saque -= 1
+#     r1 += 1
+# print(f'O saque do valor solicitado foi realizado com sucesso. \nLiberadas: \n{r50} cédulas de R$50,00.\n{r20} cédulas de R$20,00.\n{r10} cédulas de R$10,00.\n{r1} cédulas de R$1,00.')
 
-print('                     INTER BANK                       ')
-print('-------------------- BEM VINDO! --------------------')
-print('Sistema operacional: Xpgdkffss v.01')
-while saque == 0:
-    saque: int = int(input("Que valor você quer sacar? R$ "))
-while saque >= 50:
-    saque -= 50
-    r50 += 1
-while saque >= 20:
-    saque -= 20
-    r20 += 1
-while saque >= 10:
-    saque -= 10
-    r10 += 1
-while saque >= 1:
-    saque -= 1
-    r1 += 1
-print(f'O saque do valor solicitado foi realizado com sucesso. \nLiberadas: \n{r50} cédulas de R$50,00.\n{r20} cédulas de R$20,00.\n{r10} cédulas de R$10,00.\n{r1} cédulas de R$1,00.')
+#72 - Crie um programa que tenha uma tupla totalmente preenchida com uma contagem por extenso de zero a vinte. 
+# nosso programa deve ler um número pelo teclado (também de 0 a 20) e mostra-lo por extenso.
+
+# tupla: tuple = ("Zero", "Um", "Dois", "Três", "Quatro", "Cinco", "Seis", "Sete", "Oito", "Nove", "Dez", "Onze", "Doze", "Treze", 
+#                 "Quatorze", "Quinze", "Dezesseis", "Dezessete", "Dezoito", "Dezenove", "Vinte")
+
+# while True:
+#     numero: int = int(input("Digite um número entre 0 a 20: "))
+#     while numero < 0 or numero > 20:
+#         numero: int = int(input("Tente novamente. Digite um número entre 0 a 20: "))
+#     if numero >= 0 or numero <= 20:
+#         break
+# print(f'Você digitou o número {tupla[numero]}')
+
+#73 - Crie uma tupla preenchida com os 20 primeiros colocados da tabela do campeonato brasileiro 2025 na ordem atual de colocação. Depois mostre, 
+# Apenas os 5 primeiros colocados
+# Os 4 últimos da tabela
+# Lista com ordem alfabética
+# Em que posição encontra-se o Atletico-MG
+
+# times: tuple = ('Flamengo', 'Palmeiras', 'Bragantino', 'Cruzeiro', 'Fluminense', 'Internacional', 'Bahia', 'Botafogo', 'Ceara',
+#                 'São Paulo', 'Vasco', 'Corinthians', 'Juventude', 'Mirassol', 'Fortaleza', 'Vitória', 'Atlético-MG', 'Grêmio', 'Santos', 'Sport')
+
+# print("-=-" * 50)
+# print(f'Lista de times do brasileirão: {times}')
+# print("-=-" * 50)
+# print(f'Os cinco primeiros colocados são: {times[:5]}')
+# print("-=-" * 50)
+# print(f'Os quatro últimos colocados (Zona de Rebaixamento) são: {times[-4:]}')
+# print("-=-" * 50)
+# print(f'Os times em órdem alfabética são: {sorted(times)}')
+# print("-=-" * 50)
+# print(f'O {times[16]} está na {times.index("Atlético-MG")}ª posição.')
+# print("-=-" * 50)
+
+#74 - Crie um programa que vai gerar 5 números aleatórios e inserir em uma tupla. Depois disso, mostre a listagem de numeros gerados e também indique o menor e o maior
+# valor que está na tupla.
+
+# from random import choices
+
+# numeros: tuple = choices(range(10), k=5)
+# print(f'Os valores sorteados foram: {numeros}')
+# print(f'O maior valor sorteado foi {max(numeros)}.\nO menor valor sorteado foi {min(numeros)}.')
+
+#75 - Desenvolva um programa que leia 4 valores no teclado e guarde-os em uma tupla. No final mostre:
+# quantas vezes apareceu o numero 9
+# em que posição foi digitado o primeiro valor 3
+# quais foram os números pares
+
+# pares: int = 0
+# n1: int = int(input("Digite um número: "))
+# n2: int = int(input("Digite outro número: "))
+# n3: int = int(input("Digite mais um número: "))
+# n4: int = int(input("Digite o último número: "))
+# tupla: tuple = (n1, n2, n3, n4)
+# for numeros in tupla:
+#     if numeros % 2 == 0:
+#         pares += 1
+# print(f'Você digitou os valores {tupla}')
+# print(f'O valor 9 apareceu {tupla.count(9)} vezes.')
+# if 3 in tupla:
+#     print(f'O valor 3 apareceu na {tupla.index(3)+1}ª posição.')
+# else:
+#     print("O valor 3 não foi digitado em nenhuma posição.")
+# print(f'Os valores pares digitados foram {pares}.')
+
+
+#76 - Crie um programa que tenha uma tupla unica com nomes de produtos e seus respectivos preços. No final mostre uma listagem de preços organizando os dados em forma tabular.
+
+# produtos: tuple = ("Lápis", 1.75, "Borracha", 2.00, "Caderno", 15.90, "Estojo", 25.00, "Transferidor", 4.20,
+#             "Compasso", 9.99, "Mochila", 120.32, "Canetas", 22.30, "Livro", 34.90)
+
+# print("---" * 17)
+# print("LISTAGEM DE PREÇOS".center(51))
+# print("---" * 17)
+# for p in range(0, len(produtos),2):
+#     print(f'{produtos[p]:.<40}',f'R${produtos[p+1]:.7}')
+# print("---" * 17)
+
+#77 - Crie um programa que tenha uma tupla com várias palavras (nao usar acentos). Depois disso, voce deve mostrar, para cada palavra, quais são as suas vogais.
+
+palavras = ('aprender', 'programar', 'linguagem', 'python',
+            'curso', 'gratis', 'estudar', 'praticar',
+            'trabalhar', 'mercado', 'programador', 'futuro')
+
+for p in palavras:
+    print(f'Na palavra {p.upper()} temos ', end='')
+    for letra in p:
+        if letra.lower() in 'aeiou':
+            print(f'{letra}', end=' ')
+    print()
+
+
