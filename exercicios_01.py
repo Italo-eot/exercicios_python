@@ -1377,15 +1377,126 @@
 
 #77 - Crie um programa que tenha uma tupla com várias palavras (nao usar acentos). Depois disso, voce deve mostrar, para cada palavra, quais são as suas vogais.
 
-palavras = ('aprender', 'programar', 'linguagem', 'python',
-            'curso', 'gratis', 'estudar', 'praticar',
-            'trabalhar', 'mercado', 'programador', 'futuro')
+# palavras = ('aprender', 'programar', 'linguagem', 'python',
+#             'curso', 'gratis', 'estudar', 'praticar',
+#             'trabalhar', 'mercado', 'programador', 'futuro')
 
-for p in palavras:
-    print(f'Na palavra {p.upper()} temos ', end='')
-    for letra in p:
-        if letra.lower() in 'aeiou':
-            print(f'{letra}', end=' ')
-    print()
+# for p in palavras:
+#     print(f'Na palavra {p.upper()} temos ', end='')
+#     for letra in p:
+#         if letra.lower() in 'aeiou':
+#             print(f'{letra}', end=' ')
+#     print()
+
+#78 - Faça um programa que leia 5 valores numéricos e guarde-os em uma lista. No final, mostre qual foi o maior
+# e o menor valor digitado e as suas respectivas posições na lista
+
+# lista: list = []
+
+# for numeros in range(0, 5):
+#     numeros: int = int(input(f'Digite um valor para posição {numeros}: '))
+#     lista.append(numeros)
+# print(f'Nossa lista criada foi: {lista}')
+# print(f'O menor valor digitado foi {min(lista)} e encontra-se na posição {lista.index(min(lista))}.')
+# print(f'O maior valor digitado foi {max(lista)} e encontra-se na posição {lista.index(max(lista))}.')
+
+#79 - Crie um programa onde um usuário crie vários valores numéricos e cadastre-os em uma lista. Caso o número já exista la dentro
+# ele não será adicionado. No final, serão exibidos todos os valores únicos digitados em ordem crescente.
+
+# lista: list = []
 
 
+# while True:
+#     numeros: int = int(input("Digite um valor: "))
+#     if numeros not in lista:
+#         lista.append(numeros)
+#         print("Valor adicionado com sucesso...")
+#     else:
+#         print("Valor duplicado! Não vou adicionar...")
+    
+#     continua: str = " "
+#     while continua not in 'SN':
+#        continua: str = str(input("Quer continuar? [S/N ] ")).strip().upper()[0]
+#     if continua == "N":
+#          break
+# lista.sort()
+# print(f'Você digitou os valores {lista}')
+
+# 80 - Crie um programa onde o usuário possa digitar cinco valores numéricos e cadastre-os em uma lista, já na posição correta de inserção (sem usar o sort). No final mostre a lista ordenada na tela.
+
+# lista: list = []
+
+# for _ in range(0, 5):
+#     numeros: int = int(input("Digite um valor: "))
+#     posicao: int = 0  # Reinicia a posição a cada iteração
+#     while posicao < len(lista) and numeros > lista[posicao]:
+#         posicao += 1
+#     print(f'Adicionando o número {numeros} na posição {posicao} da lista...')
+#     lista.insert(posicao, numeros)
+
+# print(f'{lista}')
+
+#81 - Crie um programa que vai ler vários números e colocar em uma lista. Depois disso mostre:
+# Quantos números foram digitados
+# A lista de valores de forma decrescente
+# E se o valor 5 está ou não na lista
+
+# lista: list = []
+
+# while True:
+#     numeros: int = int(input("Digite um valor: "))
+#     lista.append(numeros)
+#     continua: str = " "
+#     while continua not in 'SN':
+#        continua: str = str(input("Quer continuar? [S/N ] ")).strip().upper()[0]
+#     if continua == "N":
+#          break
+# lista.sort(reverse=True)
+# print(f'Você digitou {len(lista)} elementos.')
+# print(f'Os valores em ordem decrescente são {lista}')
+# if 5 in lista:
+#     print(f'O valor 5 faz parte da lista!')
+# else:
+#     print("O valor 5 não faz parte da lista!")
+
+#82 - Crie um programa que vai ler vários numeros e colocar em uma lista. Depois disso, crie duas listas extras que vão conter apenas os valores pares e os impares digitados, respectivamente.
+# ao final mostre o conteúdo das três listas geradas.
+
+# lista: list = []
+# par: list = []
+# impar: list = []
+
+# while True:
+#     numeros: int = int(input("Digite um valor: "))
+#     lista.append(numeros)
+#     continuar: str = " "
+#     while continuar not in 'SN':
+#         continuar: str = str(input("Quer continuar? [S/N] ")).strip().upper()[0]
+#     if continuar == "N":
+#         break
+# for numero in lista:
+#     if numero % 2 == 0:
+#         par.append(numero)
+#     else:
+#         impar.append(numero)
+# print(f'A lista completa é: {lista}')
+# print(f'A lista de pares é: {par}')
+# print(f'A lista de ímpares é: {impar}')
+
+#83 - Crie um programa onde o usuário digite uma expressao qualquer que use parenteses. Seu aplicativo deverá analisar se a expressão passada está com os parenteses abertos e fechados na ordem correta.
+
+expressao: str = input("Digite a expressão: ")
+parenteses: int = 0
+
+for p in expressao:
+    if p == "(":
+        parenteses += 1
+    elif p == ")":
+        parenteses -= 1
+    if parenteses < 0:
+        break
+
+if parenteses == 0:
+    print("Expressão válida!")
+else:
+    print("Expressão inválida!")
