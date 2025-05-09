@@ -1485,18 +1485,177 @@
 
 #83 - Crie um programa onde o usuário digite uma expressao qualquer que use parenteses. Seu aplicativo deverá analisar se a expressão passada está com os parenteses abertos e fechados na ordem correta.
 
-expressao: str = input("Digite a expressão: ")
-parenteses: int = 0
+# expressao: str = input("Digite a expressão: ")
+# parenteses: int = 0
 
-for p in expressao:
-    if p == "(":
-        parenteses += 1
-    elif p == ")":
-        parenteses -= 1
-    if parenteses < 0:
+# for p in expressao:
+#     if p == "(":
+#         parenteses += 1
+#     elif p == ")":
+#         parenteses -= 1
+#     if parenteses < 0:
+#         break
+
+# if parenteses == 0:
+#     print("Expressão válida!")
+# else:
+#     print("Expressão inválida!")
+
+#84 - Crie um programa que leia o nome e peso de várias pessoas, guardando tudo em uma lista. No final mostre:
+# quantas pessoas foram cadastradas
+# listagem com as mais pesadas (nome)
+# listagem com as mais leves (nome)
+
+# principal: list = []
+# cadastro: list = []
+
+# while True:
+#     nome: str = input("Digite o nome: ")
+#     peso: float = float(input("Digite o peso: "))
+#     cadastro.append(nome)
+#     cadastro.append(peso)
+#     continuar: str = ' '
+#     principal.append(cadastro[:])
+#     while continuar not in 'SN':
+#         continuar: str = input("Deseja continuar? [S/N] ").strip().upper()[0]
+#     if continuar == "N":
+#         break
+#     cadastro.clear()
+
+# maior: float = max(pessoa[1] for pessoa in principal)
+# menor: float = min(pessoa[1] for pessoa in principal)
+
+# print(f'A lista de pessoas cadastradas é: {principal}')
+# print(f'Ao todo, você cadastrou {len(principal)} pessoas.')
+
+# print(f'O maior peso foi de {maior}kg. Peso de ', end='')
+# for pessoa in principal:
+#     if pessoa[1] == maior:
+#         print(f'[{pessoa[0]}] ', end='')
+
+# print(f'\nO menor peso foi de {menor}kg. Peso de ', end='')
+# for pessoa in principal:
+#     if pessoa[1] == menor:
+#         print(f'[{pessoa[0]}] ', end='')
+
+
+#85 - Crie um programa onde um usuário possa digitar 7 valores numericos e cadastre-os em uma lista única que mantenha separados os valores pares e impares. No final 
+# mostre os valores pares e impares em ordem crescente
+
+# lista: list = [[],[]]
+
+# for c in range(1,8):
+#     numero: int = int(input(f'Digite o {c}º valor: '))
+#     if numero % 2 == 0:
+#         lista[0].append(numero)
+#     else:
+#         lista[1].append(numero)
+# lista[0].sort()
+# lista[1].sort()
+# print("-=" * 30)
+# print(f'Os valores pares digitados foram {lista[0]}')
+# print(f'Os valores ímpares digitados foram {lista[1]}')
+
+
+#86 - Crie um programa que leia uma matriz de dimensao 3x3 e preencha com valores lidos pelo teclado. No final, mostre a matriz na tela, com a formatação correta.
+
+# matriz: list = [[], [], []]
+
+# for c in range(0,9):
+#     numero: int = int(input("Digite um valor: "))
+#     if c < 3:
+#         matriz[0].append(numero)
+#     elif c < 6:
+#         matriz[1].append(numero)
+#     else:
+#         matriz[2].append(numero)
+
+# print("-=" * 30)
+# for linha in matriz:
+#     print(f'[ {linha[0]:^3} ] [ {linha[1]:^3} ] [ {linha[2]:^3} ]')
+# print("-=" * 30)
+
+#87 - Aprimore o desafio anterior, mostrando no final. 
+# A soma de todos os números pares digitados
+# A soma dos valores da terceira coluna
+# O maior valor da segunda linha
+
+# matriz: list = [[], [], []]
+# par: int = 0
+
+# for c in range(0,9):
+#     numero: int = int(input("Digite um valor: "))
+#     if numero % 2 == 0:
+#         par += numero
+#     if c < 3:
+#         matriz[0].append(numero)
+#     elif c < 6:
+#         matriz[1].append(numero)
+#     else:
+#         matriz[2].append(numero)
+# print("-=" * 30)
+# for linha in matriz:
+#     print(f'[ {linha[0]:^3} ] [ {linha[1]:^3} ] [ {linha[2]:^3} ]')
+# print("-=" * 30)
+# print(f'A soma dos valores pares é {par}.')
+# print(f'A soma dos valores da terceira coluna é {sum(matriz[2])}.')
+# print(f'O maior valor da segunda linha é {max(matriz[1])}.')
+
+#88 - Faça um programa que ajude um jogador da MEGA SENA a criar palpites. O programa vai perguntar quantos jogos serão gerados e vai sortear 6 números 
+# entre 1 a 60 para cada jogo. Cadastrando tudo em uma lista composta.
+
+# import random
+
+# jogos: list = []
+# quantidade: int = int(input("Quantos jogos deseja realizar? "))
+
+# for numero in range(quantidade):
+#     sorteio = sorted(random.sample(range(1, 61), 6))
+#     jogos.append(sorteio)
+
+# for i, jogo in enumerate(jogos, 1):
+#     print(f"Jogo {i}: {jogo}")
+
+#89 - Crie um programa que leia nome e duas notas de vários alunos e guarde tudo em uma lista composta. No final, mostre um boletim contendo a média de cada um e 
+# permita que o usuário possa mostrar as notas de cada aluno individualmente.
+
+escola: list = []
+auxiliar: list = []
+indice: int = 0
+
+while True:
+    nome: str = input("Digite o nome do aluno: ")
+    nota_1: float = float(input("Digite a primeira nota: "))
+    nota_2: float = float(input("Digite a segunda nota: "))
+    media: float = (nota_1 + nota_2) / 2
+    auxiliar.append(nome)
+    auxiliar.append(nota_1)
+    auxiliar.append(nota_2)
+    auxiliar.append(media)
+    escola.append(auxiliar[:])
+    auxiliar.clear()
+    continuar: str = " "
+    while continuar not in 'SN':
+        continuar: str = input("Deseja continuar? [S/N] ").strip().upper()[0]
+    if continuar == "N":
         break
+print("-=" * 30)
+print(f'{"No.":<4}{"NOME":<10}{"MÉDIA":>8}')
+print("--" * 26)
+for i, a in enumerate(escola):
+    print(f'{i:<4}{a[0]:<10}{a[3]:>8.1f}')
 
-if parenteses == 0:
-    print("Expressão válida!")
-else:
-    print("Expressão inválida!")
+print("--" * 26)
+
+while True:
+    indice: int = int(input("De qual aluno gostaria de ver a nota? (999 interrompe) "))
+    if indice == 999:
+        print("FINALIZANDO...")
+        break
+    if indice < 0 or indice >= len(escola):
+        print("Opção inválida. Não há esse cadastro na base. Tente novamente!")
+    else:
+        print(f'Notas de {escola[indice][0]} são {escola[indice][1]} e {escola[indice][2]}')
+
+
+
