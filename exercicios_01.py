@@ -1619,43 +1619,259 @@
 #89 - Crie um programa que leia nome e duas notas de vários alunos e guarde tudo em uma lista composta. No final, mostre um boletim contendo a média de cada um e 
 # permita que o usuário possa mostrar as notas de cada aluno individualmente.
 
-escola: list = []
-auxiliar: list = []
-indice: int = 0
+# escola: list = []
+# auxiliar: list = []
+# indice: int = 0
+
+# while True:
+#     nome: str = input("Digite o nome do aluno: ")
+#     nota_1: float = float(input("Digite a primeira nota: "))
+#     nota_2: float = float(input("Digite a segunda nota: "))
+#     media: float = (nota_1 + nota_2) / 2
+#     auxiliar.append(nome)
+#     auxiliar.append(nota_1)
+#     auxiliar.append(nota_2)
+#     auxiliar.append(media)
+#     escola.append(auxiliar[:])
+#     auxiliar.clear()
+#     continuar: str = " "
+#     while continuar not in 'SN':
+#         continuar: str = input("Deseja continuar? [S/N] ").strip().upper()[0]
+#     if continuar == "N":
+#         break
+# print("-=" * 30)
+# print(f'{"No.":<4}{"NOME":<10}{"MÉDIA":>8}')
+# print("--" * 26)
+# for i, a in enumerate(escola):
+#     print(f'{i:<4}{a[0]:<10}{a[3]:>8.1f}')
+
+# print("--" * 26)
+
+# while True:
+#     indice: int = int(input("De qual aluno gostaria de ver a nota? (999 interrompe) "))
+#     if indice == 999:
+#         print("FINALIZANDO...")
+#         break
+#     if indice < 0 or indice >= len(escola):
+#         print("Opção inválida. Não há esse cadastro na base. Tente novamente!")
+#     else:
+#         print(f'Notas de {escola[indice][0]} são {escola[indice][1]} e {escola[indice][2]}')
+
+#90 - Faça um programa que leia o NOME e a MÉDIA de um aluno. Guardando também a SITUAÇÃO em um dicionário. No final mostre o conteúdo da estrutura na tela.
+
+# dicionario: dict = {}
+
+# dicionario['Nome'] = str(input("Nome: "))
+# dicionario['Média'] = float(input(f'Média de {dicionario["Nome"]}: '))
+# print(f'Nome é igual a {dicionario["Nome"]}.')
+# print(f'Média é igual a {dicionario["Média"]}.')
+# if dicionario["Média"] >= 7:
+#     print("Situação é igual a APROVADO.")
+# else:
+#     print("Situação é igual a REPROVADO.")
+
+#91 - Crie um programa onde 4 jogadores joguem um dado e tenham resultados aleatórios. Guarde esses resultados em um dicionário. No final, coloque esse dicionário em
+# ordem, sabendo que o vencedor tirou o maior número dado.
+
+# import random
+# from time import sleep
+
+# dicionario: dict = {}
+# dicionario_ordenado: dict = {}
+
+# for j in range(1, 4):
+#     dicionario['Jogador1'] = random.randint(1, 6)
+#     dicionario['Jogador2'] = random.randint(1, 6)
+#     dicionario['Jogador3'] = random.randint(1, 6)
+#     dicionario['Jogador4'] = random.randint(1, 6)
+
+# print("Valores Sorteados: ")
+# sleep(1)
+# print(f'O jogador1 tirou {dicionario["Jogador1"]}')
+# sleep(1)
+# print(f'O jogador2 tirou {dicionario["Jogador2"]}')
+# sleep(1)
+# print(f'O jogador3 tirou {dicionario["Jogador3"]}')
+# sleep(1)
+# print(f'O jogador4 tirou {dicionario["Jogador4"]}')
+
+# dicionario_ordenado = dict(sorted(dicionario.items(), key=lambda item: item[1], reverse=True))
+
+# print("Ranking dos jogadores: ")
+# for i, (jogador, valor) in enumerate(dicionario_ordenado.items(), start=1):
+#     print(f'{i}º lugar: {jogador} com {valor}')
+
+#92 - Crie um programa que leia nome, ano de nascimento e a carteira de trabalho e cadastre-os (com idade) em um dicionário se por acaso a ctps for diferente de ZERO
+# o dicionário receberá também o ano de contratação e o salário. Calcula e acrescente, além da idade com quantos anos a pessoa vai se aposentar.
+
+# import datetime
+
+# dicionario: dict = {}
+# nascimento: int = 0
+# ano: int = 0
+# atual: int = datetime.date.today()
+# aposentadoria: int = 0
+
+# dicionario['Nome'] = str(input("Nome: "))
+# nascimento: int = int(input("Ano de Nascimento: "))
+# ano: int = atual.year - nascimento
+# dicionario['Idade'] = ano
+# dicionario['CTPS'] = int(input("Carteira de trabalho (Digite 0 se não possuir): "))
+# if dicionario['CTPS'] != 0:
+#     dicionario['Contratação'] = int(input("Ano de contratação: "))
+#     dicionario['Salário'] = float(input("Salário: R$ "))
+
+# print("-=-" * 40)
+# print(f'Nome digitado: {dicionario['Nome']}')
+# print(f'Idade: {dicionario['Idade']}')
+# print(f'CTPS digitada: {dicionario['CTPS']}')
+# print(f'Ano de contratação: {dicionario["Contratação"]}')
+# print(f'O salário atual é: R$ {dicionario['Salário']}')
+# aposentadoria = 35 - (atual.year - dicionario['Contratação'])
+# if aposentadoria < 0:
+#     print(f'Funcionário já pode se aposentar. Possui {atual.year - dicionario["Contratação"]} anos trabalhados.')
+# else:
+#     print(f'Faltam {aposentadoria} anos para se aposentar.')
+
+#93 - Crie um programa que gerencie o aproveitamento de um jogador de futebol. O programa vai ler o nome do jogador e quantas partidas ele fez.  Depois vai ler 
+# a quantidade de gols feitos em cada partida. No final, tudo isso sera guardado em um dicionário incluindo o total de gols feitos durante o campeonato.
+
+# partidas: int = 0
+# gols: int = 0
+
+# dicionario: dict = {
+#     'Nome': '',
+#     'Gols': [],
+#     'Total': ''
+# }
+
+# dicionario['Nome'] = str(input("Nome do jogador: "))
+# partidas: int = int(input(f'Quantas partidas {dicionario["Nome"]} jogou? '))
+
+# for contador in range(1, partidas + 1):
+#     gols = int(input(f'Quantos gols na partida {contador}ª? '))
+#     dicionario['Gols'].append(gols)
+
+# dicionario['Total'] = sum(dicionario['Gols'])
+
+# print("-=-" * 40)
+# print(dicionario)
+# print("-=-" * 40)
+# print(f'O campo nome tem o valor {dicionario["Nome"]}')
+# print(f'O campo gols tem os valores {dicionario["Gols"]}')
+# print(f'O campo total tem o valor {dicionario["Total"]}')
+# print("-=-" * 40)
+# print(f'O jogador {dicionario["Nome"]} jogou {partidas} partidas.')
+# for partida in range (partidas):
+#     print(f' => Na partida {partida + 1}, fez {dicionario["Gols"][partida]} gols.')
+
+#94 - Crie um programa que leia, nome, sexo e idade de várias pessoas. Guardando os dados de cada um em um dicionário  e todos os dicionários em uma lista. No final mostre:
+# Quantas pessoas foram cadastradas
+# A média de idade do grupo
+# uma lista com todas as mulheres
+# uma lista com todas as pessoas com idade acima da média
+
+# cadastros: list = []
+# soma_idade: int = 0 
+# mulheres: list = []
+# acima_media: list = []
+
+
+# while True:
+#     cadastro = {}
+#     cadastro['Nome'] = str(input("Nome: "))
+#     cadastro['Sexo'] = str(input("Sexo: [M/F] "))
+
+#     while cadastro["Sexo"] != "M" and cadastro["Sexo"] != "F":
+#         print("ERRO! Por favor, digite apenas M ou F.")
+#         cadastro['Sexo'] = str(input("Sexo: [M/F] "))
+
+#     cadastro['Idade'] = int(input("Idade: "))
+
+#     while cadastro["Idade"] < 0 or cadastro["Idade"] > 130:
+#         print("ERRO! Por favor, digite uma idade válida.")
+#         cadastro['Idade'] = int(input("Idade: "))
+
+#     cadastros.append(cadastro.copy())
+#     continua = str(input("Deseja continuar? [S/N] ")).strip().upper()
+
+#     while continua not in 'SN':
+#         print("Digite uma opção válida.")
+#         continua = str(input("Deseja continuar? [S/N] ")).strip().upper()
+
+#     if continua == "N":
+#         break
+
+# print("-=-" * 50)
+# print(f'A) Ao todo temos {len(cadastros)} pessoas cadastradas.')
+# for pessoa in cadastros:
+#     soma_idade += pessoa['Idade']
+
+# if len(cadastros) > 0:
+#     print(f'B) A média de idade é de {soma_idade / len(cadastros):.2f} anos.')
+# else:
+#     print('B) Nenhuma pessoa cadastrada para calcular a média.')
+
+# for pessoa in cadastros:
+#     if pessoa['Sexo'] == 'F':
+#         mulheres.append(pessoa['Nome'])
+# if mulheres:
+#     print(f'C) As mulheres cadastradas foram: {", ".join(mulheres)}')
+# else:
+#     print('C) Nenhuma mulher cadastrada.')
+
+# for pessoa in cadastros:
+#     if pessoa['Idade'] > soma_idade / len(cadastros):
+#         acima_media.append(pessoa)
+# print("D) Lista de pessoas que estão acima da média: ")
+# for pessoa in acima_media:
+#     print(f'Nome = {pessoa['Nome']},Sexo = {pessoa['Sexo']}, Idade = {pessoa['Idade']}')
+
+# print("<< ENCERRADO >>")
+
+#95 - Aprimore o desafio 93 para que ele funcione com vários jogadores, incluindo um sistema de visualização de detalhes do aproveitamento de cada jogador.
+
+historico = []
 
 while True:
-    nome: str = input("Digite o nome do aluno: ")
-    nota_1: float = float(input("Digite a primeira nota: "))
-    nota_2: float = float(input("Digite a segunda nota: "))
-    media: float = (nota_1 + nota_2) / 2
-    auxiliar.append(nome)
-    auxiliar.append(nota_1)
-    auxiliar.append(nota_2)
-    auxiliar.append(media)
-    escola.append(auxiliar[:])
-    auxiliar.clear()
-    continuar: str = " "
-    while continuar not in 'SN':
-        continuar: str = input("Deseja continuar? [S/N] ").strip().upper()[0]
-    if continuar == "N":
+    dicionario = {}
+    dicionario['Nome'] = input("Nome do jogador: ")
+    partidas = int(input(f'Quantas partidas {dicionario["Nome"]} jogou? '))
+    
+    gols = []
+    for contador in range(1, partidas + 1):
+        gol = int(input(f'Quantos gols na partida {contador}ª? '))
+        gols.append(gol)
+    
+    dicionario['Gols'] = gols
+    dicionario['Total'] = sum(gols)
+    
+    historico.append(dicionario)
+    
+    while True:
+        resposta = input("Quer continuar? [S/N] ").strip().upper()[0]
+        if resposta in 'SN':
+            break
+        print("ERRO! Insira somente S ou N")
+    
+    if resposta == 'N':
         break
-print("-=" * 30)
-print(f'{"No.":<4}{"NOME":<10}{"MÉDIA":>8}')
-print("--" * 26)
-for i, a in enumerate(escola):
-    print(f'{i:<4}{a[0]:<10}{a[3]:>8.1f}')
 
-print("--" * 26)
+print("-=-" * 40)
+print(f"{'Cod':<4}{'Nome':<15}{'Gols':<20}{'Total':<5}")
+print("-=-" * 40)
+for idx, jogador in enumerate(historico):
+    print(f"{idx:<4}{jogador['Nome']:<15}{str(jogador['Gols']):<20}{jogador['Total']:<5}")
 
 while True:
-    indice: int = int(input("De qual aluno gostaria de ver a nota? (999 interrompe) "))
-    if indice == 999:
-        print("FINALIZANDO...")
+    busca: str = input("Deseja visualizar os dados de qual jogador? (insira 999 para sair) ")
+    if busca == 999:
         break
-    if indice < 0 or indice >= len(escola):
-        print("Opção inválida. Não há esse cadastro na base. Tente novamente!")
+    if busca >= len(historico):
+        print(f'ERRO! Não existe jogador com o código {busca}! ')
     else:
-        print(f'Notas de {escola[indice][0]} são {escola[indice][1]} e {escola[indice][2]}')
-
-
-
+        print(f' -- LEVANTAMENTO DO JOGADOR {historico[busca]["Nome"]}')
+        for jogo, gols in enumerate(historico[busca]['Gols']):
+            print(f'    No jogo {jogo+1} fez {gols} gols.')
+    print("-=-" * 40)
+print(">>>>>>>>>>>>>>> VOLTE SEMPRE <<<<<<<<<<<<<<<<<")
