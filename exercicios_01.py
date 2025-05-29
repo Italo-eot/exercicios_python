@@ -1831,47 +1831,159 @@
 
 #95 - Aprimore o desafio 93 para que ele funcione com vários jogadores, incluindo um sistema de visualização de detalhes do aproveitamento de cada jogador.
 
-historico = []
+# historico = []
 
-while True:
-    dicionario = {}
-    dicionario['Nome'] = input("Nome do jogador: ")
-    partidas = int(input(f'Quantas partidas {dicionario["Nome"]} jogou? '))
+# while True:
+#     dicionario = {}
+#     dicionario['Nome'] = input("Nome do jogador: ")
+#     partidas = int(input(f'Quantas partidas {dicionario["Nome"]} jogou? '))
     
-    gols = []
-    for contador in range(1, partidas + 1):
-        gol = int(input(f'Quantos gols na partida {contador}ª? '))
-        gols.append(gol)
+#     gols = []
+#     for contador in range(1, partidas + 1):
+#         gol = int(input(f'Quantos gols na partida {contador}ª? '))
+#         gols.append(gol)
     
-    dicionario['Gols'] = gols
-    dicionario['Total'] = sum(gols)
+#     dicionario['Gols'] = gols
+#     dicionario['Total'] = sum(gols)
     
-    historico.append(dicionario)
+#     historico.append(dicionario)
     
-    while True:
-        resposta = input("Quer continuar? [S/N] ").strip().upper()[0]
-        if resposta in 'SN':
-            break
-        print("ERRO! Insira somente S ou N")
+#     while True:
+#         resposta = input("Quer continuar? [S/N] ").strip().upper()[0]
+#         if resposta in 'SN':
+#             break
+#         print("ERRO! Insira somente S ou N")
     
-    if resposta == 'N':
-        break
+#     if resposta == 'N':
+#         break
 
-print("-=-" * 40)
-print(f"{'Cod':<4}{'Nome':<15}{'Gols':<20}{'Total':<5}")
-print("-=-" * 40)
-for idx, jogador in enumerate(historico):
-    print(f"{idx:<4}{jogador['Nome']:<15}{str(jogador['Gols']):<20}{jogador['Total']:<5}")
+# print("-=-" * 40)
+# print(f"{'Cod':<4}{'Nome':<15}{'Gols':<20}{'Total':<5}")
+# print("-=-" * 40)
+# for idx, jogador in enumerate(historico):
+#     print(f"{idx:<4}{jogador['Nome']:<15}{str(jogador['Gols']):<20}{jogador['Total']:<5}")
 
-while True:
-    busca: str = input("Deseja visualizar os dados de qual jogador? (insira 999 para sair) ")
-    if busca == 999:
-        break
-    if busca >= len(historico):
-        print(f'ERRO! Não existe jogador com o código {busca}! ')
-    else:
-        print(f' -- LEVANTAMENTO DO JOGADOR {historico[busca]["Nome"]}')
-        for jogo, gols in enumerate(historico[busca]['Gols']):
-            print(f'    No jogo {jogo+1} fez {gols} gols.')
-    print("-=-" * 40)
-print(">>>>>>>>>>>>>>> VOLTE SEMPRE <<<<<<<<<<<<<<<<<")
+# while True:
+#     busca = int(input("Deseja visualizar os dados de qual jogador? (insira 999 para sair) "))
+    
+#     if busca == 999:
+#         break
+    
+#     if busca < 0 or busca >= len(historico):
+#         print(f'ERRO! Não existe jogador com o código {busca}!')
+#     else:
+#         print(f' -- LEVANTAMENTO DO JOGADOR {historico[busca]["Nome"]}')
+#         for jogo, gols in enumerate(historico[busca]['Gols']):
+#             print(f'    No jogo {jogo + 1} fez {gols} gols.')
+    
+#     print("-=-" * 40)
+
+# print(">>>>>>>>>>>>>>> VOLTE SEMPRE <<<<<<<<<<<<<<<<<")
+
+#96 - Faça um programa que tenha uma funcao chamada área(), que receba as dimensões de um terreno retangular (largura e comprimento) e mostre a área do terreno
+
+# def terreno():
+#     print("   Controle de Terrenos   ")
+#     print("-" * 30)
+#     L: float = float(input("LARGURA (m): "))
+#     C: float = float(input("COMPRIMENTO (m): "))
+#     area = C * L
+#     print(f'A área de um terreno {L} x {C} é de {area}m².')
+
+# terreno()
+
+#97 - Faça um programa que tenha uma função chamada escreva(), que receba um texto qualquer como parâmetro e mostre uma mensagem com tamanho adaptável.
+
+# def escreva(texto):
+#     print("~" * len(texto))
+#     print(texto)
+#     print("~" * len(texto))
+
+# texto: str = str(input("Digite sua frase: "))
+# escreva(texto)
+
+#98 - Faça um programa que tenha uma função chamada contador(), que receba três parâmetros, início, fim e passo e realiza a contagem.
+# Seu programa tem que realizar três contagens através da função criada.
+# a) de 1 até 10, de 1 em 1
+# b) de 10 até 0, de 2 em 2
+# c) uma contagem personalizada
+
+# from time import sleep
+
+# def contador(i, f, p):
+#     if p < 0:
+#         p *= -1
+#     if p == 0:
+#         p = 1
+#     print(f'Contagem de {i} até {f} de {p} em {p}')
+#     sleep(0.5)
+#     if i < f:
+#         cont = i
+#         while cont <= f:
+#             print(f'{cont} ', end='', flush=True)
+#             sleep(0.5)
+#             cont += p
+#         print("FIM!")
+#     else:
+#         cont = i
+#         while cont >= f:
+#             print(f'{cont} ', end='', flush=True)
+#             sleep(0.5)
+#             cont -= p
+#         print("FIM!")
+
+
+# contador(1, 10, 1)
+# contador(10, 0, 2)
+# print("~" * 20)
+# print("Insira a contagem que deseja ver: ")
+# ini: int = int(input("Início: "))
+# fim: int = int(input("Fim: "))
+# passo: int = int(input("Passo: "))
+# contador(ini, fim, passo)
+
+#99 - Faça um programa que tenha uma função chamada maior(), que receba vários parâmetros com valores inteiros.
+# Seu programa tem que analisar todos os valores e dizer qual deles é o maior.
+
+# from time import sleep
+
+# def maior(*num):
+#     print("-=" * 30)
+#     print("Analisando os valores passados...")
+#     sleep(0.5)
+#     if num:
+#         numero: int = max(num)
+#     else:
+#         numero: int = 0
+#     for n in num:
+#         print(f'{n}', end=' ')
+#     print(f'Foram informados {len(num)} valores ao todo.')
+#     print(f'O maior valor informado foi {numero}.')
+
+
+# maior(2, 9, 4, 5, 7, 1)
+# maior(4, 7, 9)
+# maior(1, 2)
+# maior()
+
+#100 - Faça um programa que tenha uma lista chamada numeros e duas funções. Uma chamada sorteia() e somaPar(). A primeira função vai sortear 5 números e colocar dentro da lista
+# e a segunda vai mostrar a soma de todos os valores pares sorteados pela funcao anterior.
+
+from random import randint
+
+def sorteia(lista):
+    lista.clear()
+    for n in range(0, 5):
+        lista.append(randint(1, 10))
+    print(f'Números sorteados: {lista}')
+
+def somaPar(lista):
+    pares = 0
+    for n in lista:
+        if n % 2 == 0:
+            pares += n
+    print(f'A soma dos valores pares é: {pares}')
+
+numeros = []
+sorteia(numeros)
+somaPar(numeros)
