@@ -1969,21 +1969,172 @@
 #100 - Faça um programa que tenha uma lista chamada numeros e duas funções. Uma chamada sorteia() e somaPar(). A primeira função vai sortear 5 números e colocar dentro da lista
 # e a segunda vai mostrar a soma de todos os valores pares sorteados pela funcao anterior.
 
-from random import randint
+# from random import randint
 
-def sorteia(lista):
-    lista.clear()
-    for n in range(0, 5):
-        lista.append(randint(1, 10))
-    print(f'Números sorteados: {lista}')
+# def sorteia(lista):
+#     lista.clear()
+#     for n in range(0, 5):
+#         lista.append(randint(1, 10))
+#     print(f'Números sorteados: {lista}')
 
-def somaPar(lista):
-    pares = 0
-    for n in lista:
-        if n % 2 == 0:
-            pares += n
-    print(f'A soma dos valores pares é: {pares}')
+# def somaPar(lista):
+#     pares = 0
+#     for n in lista:
+#         if n % 2 == 0:
+#             pares += n
+#     print(f'A soma dos valores pares é: {pares}')
 
-numeros = []
-sorteia(numeros)
-somaPar(numeros)
+# numeros = []
+# sorteia(numeros)
+# somaPar(numeros)
+
+#101 - Crie um programa que tenha uma funcao chamada voto() que vai receber como parâmetro o ano de nascimento de uma pessoa, retornando um valor literal,
+# indicando se a pessoa tem voto NEGADO, OPCIONAL ou OBRIGATORIO nas eleições
+
+# from datetime import datetime
+
+# def voto(m):
+#     dataAtual = datetime.today()
+#     anoAtual = dataAtual.year
+#     idade = anoAtual - m
+#     if idade >= 65:
+#         print(f'Com {idade} anos: VOTO OPCIONAL!')
+#     elif idade >= 18:
+#         print(f'Com {idade} anos: VOTO OBRIGATÓRIO')
+#     else:
+#         print(f'Com {idade} anos: NÃO VOTA!')
+#     return m
+
+
+# print("--" * 20)
+# ano = int(input("Em que ano você nasceu? "))
+# voto(ano)
+
+#102 - Crie um programa que tenha uma função fatorial() que receba dois parâmetros. O primeiro que indique o número  a calcular e o outro chamado show, que será
+# um valor lógico(opcional) indicando se será mostrado ou não na tela o processo de cálculo fatorial.
+
+# def fatorial(n, opcional=False):
+#     """-> Calcula o fatorial de um número
+
+#     Args:
+#         n (int): O número a ser calculado
+#         opcional (bool, optional): Mostrar ou não a conta. Defaults to False.
+
+#     Returns:
+#         int: O valor do fatorial de um número n
+#     """
+#     fat = 1
+#     if opcional:
+#         print(f'Fatorial de {n}: ', end='')
+
+#     for i in range(n, 0, -1):
+#         fat *= i
+#         if opcional:
+#             print(f'{i}', end='')
+#             if i > 1:
+#                 print(' x ', end='')
+#             else:
+#                 print(' = ', end='')
+                
+#     return fat
+
+# numero = int(input("Deseja ver o fatorial de qual número? "))
+# mostra = str(input("Deseja ver a conta? [S/N] ")).strip().upper()[0]
+# if mostra == 'S':
+#     mostra = True
+# else:
+#     mostra = False
+
+# resultado = fatorial(numero, mostra)
+# print(resultado)
+
+
+#103 - Faça um programa que tenha uma função chamada ficha(), que receba dois parâmetros opcionais: o nome de um jogador e quantos gols ele marcou.
+# O programa deverá ser capaz de mostrar a ficha do jogador, mesmo que algum dado nao tenha sido informado corretamente.
+
+# def ficha(nome='<desconhecido>',gols=0):
+#     """-> Retorna as informações do campeonato
+
+#     Args:
+#         nome (str, optional): Nome do jogador informado. Defaults to '<desconhecido>'.
+#         gols (int, optional): Quantidade de gols feitos. Defaults to 0.
+#     """
+#     print(f'O jogador {nome} fez {gols} gol(s) no campeonato')
+
+
+# n = str(input("Nome do jogador: "))
+# if n.strip() == '':
+#     n = "<desconhecido>"
+# g = str(input("Número de Gols: "))
+# if g.isnumeric():
+#     g = int(g)
+# else:
+#     g = 0
+# ficha(n, g)
+        
+
+#104 - Crie um programa que tenha uma função leiaInt(), que vai funcionar de forma semelhante à função input() do python, só que fazendo a validação
+# para aceitar apenas um valor numérico
+
+# def leiaInt(msg):
+#     while True:
+#         n = input(msg)
+#         if not n.isnumeric():
+#             print("ERRO! Digite um número válido.")
+#         else:
+#             return int(n)
+
+
+# n = leiaInt('Digite um número: ')
+# print(f'Você acabou de digitar o número {n}')
+
+#105 - Faça um programa que tenha uma função chamada notas() que pode receber várias notas de alunos e vai retornar um dicionário com as seguintes informações
+# Quantidade de notas
+# A maior nota
+# A menor nota
+# A média da turma
+# A situação (opcional)
+# adicione também as docstrings da função
+
+# def notas(*n, situacao=False):
+#     """Função para analisar notas e situações de respectivos alunos
+
+#     Args:
+#         n (float): Uma ou mais notas informadas
+#         situacao (bool, optional): Valor opcional, indicando se deve ou não mostrar a situação. Defaults to False.
+
+#     Returns:
+#         _type_: Dicionário com várias informações sobre a situação da turma
+#     """
+#     dicionario = {}
+#     dicionario['Total'] = len(n)
+#     dicionario['Notas'] = n
+#     dicionario['Maior'] = max(n)
+#     dicionario['Menor'] = min(n)
+#     dicionario['Média'] = sum(n) / len(n)
+
+#     if situacao:
+#         media = dicionario['Média']
+#         if media >= 7.0:
+#             dicionario['Situação'] = "BOA"
+#         elif media >= 5.0:
+#             dicionario['Situação'] = "RAZOÁVEL"
+#         else:
+#             dicionario['Situação'] = "RUIM"
+
+#     return dicionario
+
+# resp = notas(5.5, 2.5, 1.5, situacao=False)
+# print(resp)
+
+#106 - Faça um mini sistema que utilize o interactive help do python. O usuário vai digitar o comando e o manual vai aparecer.
+# Quando o usuário digitar a palavra "FIM" o programa se encerrará.
+
+def ajuda():
+    while True:
+        verificador = input("Função ou biblioteca? ").strip().lower()
+        if verificador == "fim":
+            break
+        help(verificador)
+
+ajuda()
