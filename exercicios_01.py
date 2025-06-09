@@ -2130,11 +2130,34 @@
 #106 - Faça um mini sistema que utilize o interactive help do python. O usuário vai digitar o comando e o manual vai aparecer.
 # Quando o usuário digitar a palavra "FIM" o programa se encerrará.
 
-def ajuda():
-    while True:
-        verificador = input("Função ou biblioteca? ").strip().lower()
-        if verificador == "fim":
-            break
-        help(verificador)
+# def ajuda():
+#     while True:
+#         verificador = input("Função ou biblioteca? ").strip().lower()
+#         if verificador == "fim":
+#             break
+#         help(verificador)
 
-ajuda()
+# ajuda()
+
+#107 - Crie um módulo chamado moeda.py que tenha funções incorporadas: aumentar(), diminuir(), dobro() e metade(). Faça um programa que importe esse módulo
+# e use todas as funções.
+
+from pacotes.moeda import moeda
+
+preco = float(input("Digite o preço: R$ "))
+print(f'A metade de R${preco:.2f} é {moeda.metade(preco)}')
+print(f'O dobro de R${preco:.2f} é {moeda.dobro(preco)}')
+
+
+while True:
+    decisao = input("Deseja reduzir ou aumentar o salário? [R/A] ").strip().upper()
+    if decisao == "A":
+        aumentar = float(input("Digite o percentual de reajuste: "))
+        print(f'Aumentando em {aumentar}%, temos {moeda.aumenta(preco, aumentar)}')
+        break
+    elif decisao == "R":
+        reduz = float(input("Digite o percentual de redução: "))
+        print(f'Reduzindo {reduz}%, temos {moeda.diminuir(preco, reduz)}')
+        break
+    else:
+        print("Opção inválida. Digite apenas R ou A.")
