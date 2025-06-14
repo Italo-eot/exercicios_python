@@ -2142,22 +2142,106 @@
 #107 - Crie um módulo chamado moeda.py que tenha funções incorporadas: aumentar(), diminuir(), dobro() e metade(). Faça um programa que importe esse módulo
 # e use todas as funções.
 
-from pacotes.moeda import moeda
+# from pacotes.moeda import moeda
 
-preco = float(input("Digite o preço: R$ "))
-print(f'A metade de R${preco:.2f} é {moeda.metade(preco)}')
-print(f'O dobro de R${preco:.2f} é {moeda.dobro(preco)}')
+# preco = float(input("Digite o preço: R$ "))
+# print(f'A metade de R${preco:.2f} é {moeda.metade(preco)}')
+# print(f'O dobro de R${preco:.2f} é {moeda.dobro(preco)}')
 
 
-while True:
-    decisao = input("Deseja reduzir ou aumentar o salário? [R/A] ").strip().upper()
-    if decisao == "A":
-        aumentar = float(input("Digite o percentual de reajuste: "))
-        print(f'Aumentando em {aumentar}%, temos {moeda.aumenta(preco, aumentar)}')
-        break
-    elif decisao == "R":
-        reduz = float(input("Digite o percentual de redução: "))
-        print(f'Reduzindo {reduz}%, temos {moeda.diminuir(preco, reduz)}')
-        break
-    else:
-        print("Opção inválida. Digite apenas R ou A.")
+# while True:
+#     decisao = input("Deseja reduzir ou aumentar o salário? [R/A] ").strip().upper()
+#     if decisao == "A":
+#         aumentar = float(input("Digite o percentual de reajuste: "))
+#         print(f'Aumentando em {aumentar}%, temos {moeda.aumenta(preco, aumentar)}')
+#         break
+#     elif decisao == "R":
+#         reduz = float(input("Digite o percentual de redução: "))
+#         print(f'Reduzindo {reduz}%, temos {moeda.diminuir(preco, reduz)}')
+#         break
+#     else:
+#         print("Opção inválida. Digite apenas R ou A.")
+
+#108 - Adapte o código da versão 107, criando uma função adicional chamada moeda que consiga mostrar os valores como um valor monetário formatado.
+
+# from pacotes.moeda import moeda
+
+# preco = float(input("Digite o preço: R$ "))
+# print(f'A metade de {moeda.moeda(preco)} é {moeda.moeda(moeda.metade(preco))}')
+# print(f'O dobro de {moeda.moeda(preco)} é {moeda.moeda(moeda.dobro(preco))}')
+
+#109 - modifique as funcoes que foram criadas no desafio 107 para que elas aceitem um parâmetro a mais, informando se o valor retornado por elas vai ser ou não
+# formatado pela função moeda() desenvolvida no 108.
+
+# feito - Inseridos a opção True or False.
+
+#110 - adicione ao modulo moeda() criado uma funcao chamada resumo(), que mostre na tela algumas informações geradas pela funcoes que já temos no módulo criado
+
+# from pacotes.moeda import moeda
+
+# preco = float(input("Digite o preço: R$ "))
+# moeda.resumo(preco)
+
+#111 - Crie um pacote chamado utilidadesCev que tenha dois módulos internos chamados moeda e dados. Transfira tudo para o primeiro pacote e mantenha tudo funcionando
+# OBS: acabou que esse eu fiz no início. Criei toda a estrutura e realizei o commit no github
+
+# feito
+
+#112 - Crie uma funcao dentro do módulo dado criado no 111 e insira uma funcao chamada leiaDinheiro() que seja capaz de funcionar como a funcao input(),
+# mas com validacao de dados para aceitar somente valores que sejam monetários.
+
+#113 - Reescreva a função leiaInt() que fizemos no desafio 104, incluindo agora a possibilidade da digitação de um número de tipo inválido. Aproveite e crie a função leiaFloat()
+# com a mesma finalidade.
+
+# def leiaInt(msg):
+#     while True:
+#         try:
+#             n = int(input(msg))
+#         except (ValueError, TypeError):
+#             print("ERRO: por favor, digite um número inteiro válido")
+#             continue
+#         except KeyboardInterrupt:
+#             print("Entrada de dados interrompida pelo usuário")
+#             return 0
+#         else:
+#             return n
+
+# def leiaFloat(mensagem):
+#     while True:
+#         try:
+#             n = float(input(mensagem))
+#         except (ValueError, TypeError):
+#             print("ERRO: por favor, digite um número real válido")
+#             continue
+#         except KeyboardInterrupt:
+#             print("Entrada de dados interrompida pelo usuário")
+#             return 0
+#         else:
+#             return n
+
+
+# n = leiaInt('Digite um número: ')
+# m = leiaFloat('Digite um número: ')
+# print(f'Você acabou de digitar o número {n}')
+# print(f'Você acabou de digitar o número {m}')
+
+#114 - Crie um código em python que teste se o site Pudim está acessível pelo computador usado.
+
+import requests
+
+def verificar_acesso():
+    url = 'http://www.pudim.com.br'
+    try:
+        resposta = requests.get(url)
+        resposta.raise_for_status()
+        print('O site Pudim {url} está acessível!')
+    except requests.exceptions.RequestException:
+        print('O site Pudim {url} não está acessível.')
+
+
+if __name__ == "__main__":
+    verificar_acesso()
+
+#115 - Crie um pequeno sistema modularizado que permita cadastrar pessoas pelo seu nome e idade em um arquivo de texto simples.
+# o sistema vai ter 2 opções: cadastrar uma nova pessoa e listar todas as pessoas.
+
