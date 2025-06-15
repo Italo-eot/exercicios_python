@@ -2227,21 +2227,50 @@
 
 #114 - Crie um código em python que teste se o site Pudim está acessível pelo computador usado.
 
-import requests
+# import requests
 
-def verificar_acesso():
-    url = 'http://www.pudim.com.br'
-    try:
-        resposta = requests.get(url)
-        resposta.raise_for_status()
-        print('O site Pudim {url} está acessível!')
-    except requests.exceptions.RequestException:
-        print('O site Pudim {url} não está acessível.')
+# def verificar_acesso():
+#     url = 'http://www.pudim.com.br'
+#     try:
+#         resposta = requests.get(url)
+#         resposta.raise_for_status()
+#         print('O site Pudim está acessível!')
+#     except requests.exceptions.RequestException:
+#         print('O site Pudim não está acessível.')
 
 
-if __name__ == "__main__":
-    verificar_acesso()
+# if __name__ == "__main__":
+#     verificar_acesso()
 
 #115 - Crie um pequeno sistema modularizado que permita cadastrar pessoas pelo seu nome e idade em um arquivo de texto simples.
 # o sistema vai ter 2 opções: cadastrar uma nova pessoa e listar todas as pessoas.
+
+from pacotes.sistema import funcoes
+from pacotes.arquivo import *
+from time import sleep
+
+arquivo = 'exercicios.txt'
+if arquivoExiste(arquivo):
+    print("Arquivo encontrado com sucesso.")
+else:
+    print("Arquivo não encontrado.")
+    criarArquivo(arquivo)
+
+while True:
+    resposta = funcoes.menu(['Ver pessoas cadastradas', 'Cadastrar nova pessoa', 'Sair do sistema'])
+    if resposta == 1:
+        print("Opção 1")
+        lerArquivo(arquivo)
+    elif resposta == 2:
+        cabecalho("NOVO CADASTRO")
+        nome = str(input("Nome: "))
+        idade = leiaInt("Idade: ")
+        cadastrar(arquivo, nome, idade)
+    elif resposta == 3:
+        print("Saindo do sistema...Até logo!")
+        break
+    else:
+        print("ERRO! Digite uma opção válida")
+    sleep(2)
+
 
